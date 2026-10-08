@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My assets — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.nav a[aria-current=page]{background:#1B1C20;color:#F2F2F3}
+.row:hover{background:#1B1C20}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html">Artists</a><a href="Communities.dc.html">Communities</a><a href="Causes.dc.html">Causes</a><a href="Institutions.dc.html">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" aria-current="page" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+
+    <section style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <div aria-hidden="true" style="width: 56px; height: 56px; border-radius: 28px; background: #3B2A4A"></div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <h1 style="margin: 0; font-size: 24px; font-weight: 700">My assets</h1>
+          <span class="mono" style="font-size: 13px; color: #8C8F98">0x7a1c…3f21 · 2 wallets linked · <a href="Profile.dc.html">View public profile</a></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <a href="Sell.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 14px; font-weight: 700; text-decoration: none">List items</a>
+        <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Transfer</button>
+      </div>
+    </section>
+
+    <dl class="mono" style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; border: 1px solid #222327; border-radius: 14px; overflow: hidden; background: #222327">
+      <div style="padding: 16px; background: #141416"><dt style="font-size: 12px; color: #8C8F98">Est. value</dt><dd style="margin: 4px 0 0; font-size: 22px; font-weight: 600">6.214 Ξ</dd></div>
+      <div style="padding: 16px; background: #141416"><dt style="font-size: 12px; color: #8C8F98">Unrealized P&amp;L</dt><dd style="margin: 4px 0 0; font-size: 22px; font-weight: 600; color: #3DD68C">+1.082 Ξ</dd></div>
+      <div style="padding: 16px; background: #141416"><dt style="font-size: 12px; color: #8C8F98">Items</dt><dd style="margin: 4px 0 0; font-size: 22px; font-weight: 600">14</dd></div>
+      <div style="padding: 16px; background: #141416"><dt style="font-size: 12px; color: #8C8F98">Listed</dt><dd style="margin: 4px 0 0; font-size: 22px; font-weight: 600">3</dd></div>
+      <div style="padding: 16px; background: #141416"><dt style="font-size: 12px; color: #8C8F98">Offers received</dt><dd style="margin: 4px 0 0; font-size: 22px; font-weight: 600; color: #FF8A00">2</dd></div>
+    </dl>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #222327">
+      <div role="tablist" aria-label="Asset views" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+          <button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 8px; padding-bottom: 8px">
+        <label for="chainf" class="sr-only">Chain</label>
+        <select id="chainf" style="height: 36px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font: inherit; font-size: 13px"><option>All chains</option><option>Ethereum</option><option>Base</option><option>Solana</option><option>Bitcoin</option></select>
+        <label style="display: inline-flex; align-items: center; gap: 6px; height: 36px; font-size: 13px; color: #C4C6CC"><input type="checkbox" style="accent-color: #FF8A00; margin: 0">Show hidden</label>
+      </div>
+    </div>
+
+    <sc-if value="{{isItems}}" hint-placeholder-val="{{ true }}">
+      <section aria-label="Items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px">
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="8">
+          <button type="button" onClick="{{it.toggle}}" aria-pressed="{{it.pressed}}" style="{{it.style}}">
+            <span style="{{it.art}}">
+              <sc-if value="{{it.listed}}" hint-placeholder-val="{{ false }}"><span class="mono" style="position: absolute; top: 8px; left: 8px; padding: 2px 6px; border-radius: 4px; background: #FF8A00; color: #0B0B0C; font-size: 11px; font-weight: 600">Listed</span></sc-if>
+              <span style="{{it.check}}"></span>
+            </span>
+            <span style="display: flex; flex-direction: column; gap: 2px; padding: 10px; text-align: left">
+              <span style="font-size: 13px; font-weight: 600; color: #F2F2F3">{{it.collection}} <span class="mono" style="color: #8C8F98">#{{it.id}}</span></span>
+              <span class="mono" style="display: flex; justify-content: space-between; font-size: 12px"><span style="color: #A3A6AE">Floor {{it.floor}}</span><span style="{{it.pnlStyle}}">{{it.pnl}}</span></span>
+            </span>
+          </button>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{isOffers}}" hint-placeholder-val="{{ false }}">
+      <section aria-label="Offers received" style="border: 1px solid #222327; border-radius: 14px; background: #141416; overflow-x: auto">
+        <sc-for list="{{offers}}" as="o" hint-placeholder-count="2">
+          <div style="min-width: 640px; display: grid; grid-template-columns: minmax(0, 2fr) 1fr 1fr 1fr 180px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid #222327">
+            <span style="font-size: 14px; font-weight: 600">{{o.item}}</span>
+            <span class="mono" style="font-size: 14px">{{o.price}}</span>
+            <span class="mono" style="font-size: 13px; color: #A3A6AE">{{o.vsFloor}}</span>
+            <span class="mono" style="font-size: 13px; color: #8C8F98">{{o.from}} · {{o.exp}}</span>
+            <span style="display: flex; gap: 6px; justify-content: flex-end">
+              <button type="button" style="height: 36px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; cursor: pointer">Decline</button>
+              <button type="button" style="height: 36px; padding: 0 12px; border: 0; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Accept</button>
+            </span>
+          </div>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{isOther}}" hint-placeholder-val="{{ false }}">
+      <section style="padding: 48px 16px; border: 1px dashed #2A2B30; border-radius: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px">
+        <span style="font-size: 15px; font-weight: 600">{{otherTitle}}</span>
+        <span style="font-size: 13px; color: #8C8F98">{{otherBody}}</span>
+      </section>
+    </sc-if>
+  </main>
+
+  <sc-if value="{{hasSel}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; border-top: 1px solid #222327; background: #111113">
+      <div style="max-width: 1360px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+        <span class="mono" style="font-size: 13px"><strong>{{selCount}}</strong> selected · floor value {{selValue}} Ξ</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" onClick="{{clear}}" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Clear</button>
+          <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Hide</button>
+          <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Transfer</button>
+          <a href="Sell.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 700; text-decoration: none">List selected</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'Items', sel: [] };
+  }
+  renderVals() {
+    const st = this.state;
+    const items = [
+      { id: 4021, collection: 'Quiet Machines', floor: 0.842, cost: 0.61, listed: true, c: '#3B2A4A' },
+      { id: 118, collection: 'Quiet Machines', floor: 0.842, cost: 0.9, listed: true, c: '#2A3A4A' },
+      { id: 2201, collection: 'Orbital Studies', floor: 0.031, cost: 0.02, listed: false, c: '#4A3218' },
+      { id: 2202, collection: 'Orbital Studies', floor: 0.031, cost: 0.02, listed: false, c: '#3A2814' },
+      { id: 77, collection: 'Field Notes', floor: 0.215, cost: 0.25, listed: false, c: '#22304A' },
+      { id: 913, collection: 'Arcade Keys', floor: 0.012, cost: 0.004, listed: true, c: '#2E3A22' },
+      { id: 31, collection: 'Pixel Saints', floor: 0.29, cost: 0.31, listed: false, c: '#1F3A3A' },
+      { id: 640, collection: 'Runestones', floor: 0.06, cost: 0.03, listed: false, c: '#3A3320' }
+    ];
+    const tabs = ['Items', 'Offers received', 'Listings', 'Activity', 'Hidden'];
+    const msg = {
+      'Listings': ['3 active listings', 'Manage prices and cancel from here.'],
+      'Activity': ['Your sales, buys, mints and transfers', 'Filterable by chain and type.'],
+      'Hidden': ['Nothing hidden', 'Hide spam airdrops so they never show up here.']
+    };
+    const selVal = st.sel.reduce((s, i) => s + items[i].floor, 0);
+    return {
+      tabs: tabs.map((t) => ({
+        label: t, selected: String(st.tab === t), pick: () => this.setState({ tab: t }),
+        style: 'height: 44px; padding: 0 14px; border: 0; border-bottom: 2px solid ' + (st.tab === t ? '#FF8A00' : 'transparent') + '; background: transparent; color: ' + (st.tab === t ? '#F2F2F3' : '#8C8F98') + '; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer'
+      })),
+      isItems: st.tab === 'Items', isOffers: st.tab === 'Offers received', isOther: !!msg[st.tab],
+      otherTitle: msg[st.tab] ? msg[st.tab][0] : '', otherBody: msg[st.tab] ? msg[st.tab][1] : '',
+      items: items.map((x, i) => {
+        const on = st.sel.includes(i);
+        const pnl = (x.floor - x.cost) / x.cost * 100;
+        return {
+          ...x, floor: x.floor.toFixed(3), pressed: String(on),
+          pnl: (pnl >= 0 ? '+' : '') + pnl.toFixed(0) + '%',
+          pnlStyle: pnl >= 0 ? 'color: #3DD68C' : 'color: #FF7A7A',
+          toggle: () => this.setState({ sel: on ? st.sel.filter((s) => s !== i) : st.sel.concat(i) }),
+          style: 'display: flex; flex-direction: column; padding: 0; border-radius: 12px; overflow: hidden; background: #141416; cursor: pointer; font: inherit; border: 1px solid ' + (on ? '#FF8A00' : '#222327'),
+          art: 'position: relative; display: block; aspect-ratio: 1 / 1; background: ' + x.c,
+          check: 'position: absolute; top: 8px; right: 8px; width: 18px; height: 18px; border-radius: 5px; box-sizing: border-box; ' + (on ? 'background: #FF8A00' : 'border: 1.5px solid #8C8F98')
+        };
+      }),
+      offers: [
+        { item: 'Quiet Machines #4021', price: '0.810 Ξ', vsFloor: '−3.8% floor', from: '0x91…be02', exp: '2d' },
+        { item: 'Field Notes #77', price: '0.200 Ξ', vsFloor: '−7.0% floor', from: 'kiln.eth', exp: '6h' }
+      ],
+      hasSel: st.sel.length > 0, selCount: st.sel.length, selValue: selVal.toFixed(3),
+      clear: () => this.setState({ sel: [] })
+    };
+  }
+}
+</script>
+</body>
+</html>

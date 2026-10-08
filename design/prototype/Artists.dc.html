@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Artists — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.nav a[aria-current=page]{background:#1B1C20;color:#F2F2F3}
+.card:hover{border-color:#3A3B42}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+@media (max-width: 900px){.bento > *{grid-column:1 / -1 !important}}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html" aria-current="page">Artists</a><a href="Communities.dc.html">Communities</a><a href="Causes.dc.html">Causes</a><a href="Institutions.dc.html">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div><h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Artists</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">Verified creators. Follow to see their drops first.</p></div>
+      <a href="Settings.dc.html" style="font-size: 14px; font-weight: 600">Are you an artist? Get verified →</a>
+    </div>
+
+    <div class="bento" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px">
+      <a href="Profile.dc.html" class="card" style="grid-column: span 8; display: flex; flex-wrap: wrap; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden; color: #F2F2F3; text-decoration: none">
+        <span style="flex: 1 1 280px; min-height: 260px; background: #241A10; display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box; font-size: 12px; color: #A3A6AE">[Featured work]</span>
+        <span style="flex: 1 1 280px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px">
+          <span style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #FF8A00">ARTIST SPOTLIGHT</span>
+            <span style="font-size: 26px; font-weight: 700">[Artist name]</span>
+            <span style="font-size: 14px; line-height: 1.5; color: #C4C6CC">Generative work about slow orbits. New drop minting now on Base.</span>
+          </span>
+          <span class="mono" style="display: flex; gap: 20px; font-size: 13px"><span><span style="color: #8C8F98">Collectors </span>2,140</span><span><span style="color: #8C8F98">Vol </span>412 Ξ</span></span>
+        </span>
+      </a>
+      <section aria-label="Rising" style="grid-column: span 4; padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 10px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Rising this week</h2>
+        <sc-for list="{{rising}}" as="r" hint-placeholder-count="4">
+          <a href="Profile.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; color: #F2F2F3; text-decoration: none">
+            <span class="mono" style="width: 18px; font-size: 12px; color: #8C8F98">{{r.n}}</span>
+            <span aria-hidden="true" style="{{r.avatar}}"></span>
+            <span style="flex: 1; font-size: 14px; font-weight: 600">{{r.name}}</span>
+            <span class="mono" style="font-size: 12px; color: #3DD68C">{{r.growth}}</span>
+          </a>
+        </sc-for>
+      </section>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <div role="group" aria-label="Discipline" style="display: flex; flex-wrap: wrap; gap: 6px">
+        <sc-for list="{{disciplines}}" as="d" hint-placeholder-count="7">
+          <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" style="{{d.style}}">{{d.label}}</button>
+        </sc-for>
+      </div>
+      <select aria-label="Sort artists" style="height: 36px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font: inherit; font-size: 13px"><option>Most collected</option><option>Newest</option><option>Most followed</option><option>Minting now</option></select>
+    </div>
+
+    <section aria-label="Artist directory" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px">
+      <sc-for list="{{artists}}" as="a" hint-placeholder-count="8">
+        <div class="card" style="padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px">
+            <span style="{{a.w1}}"></span><span style="{{a.w2}}"></span><span style="{{a.w3}}"></span>
+          </div>
+          <a href="Profile.dc.html" style="display: flex; align-items: center; gap: 10px; color: #F2F2F3; text-decoration: none">
+            <span aria-hidden="true" style="{{a.avatar}}"></span>
+            <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 15px; font-weight: 600">{{a.name}}</span><span style="font-size: 12px; color: #8C8F98">{{a.disc}} · {{a.chain}}</span></span>
+          </a>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <span class="mono" style="font-size: 12px; color: #A3A6AE">{{a.collectors}} collectors</span>
+            <button type="button" onClick="{{a.toggle}}" aria-pressed="{{a.on}}" style="{{a.btn}}">{{a.btnText}}</button>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { disc: 'All', follows: {} };
+  }
+  renderVals() {
+    const st = this.state;
+    const discs = ['All', 'Generative', 'Painting', 'Photography', '3D', 'Illustration', 'Music'];
+    const all = [
+      { id: 1, name: '[Artist A]', disc: 'Generative', chain: 'Ethereum', collectors: '2,140', c: '#4A3218' },
+      { id: 2, name: '[Artist B]', disc: 'Photography', chain: 'Ethereum', collectors: '880', c: '#22304A' },
+      { id: 3, name: '[Artist C]', disc: 'Painting', chain: 'Bitcoin', collectors: '412', c: '#3A3320' },
+      { id: 4, name: '[Artist D]', disc: '3D', chain: 'Solana', collectors: '1,305', c: '#1F3A3A' },
+      { id: 5, name: '[Artist E]', disc: 'Illustration', chain: 'Base', collectors: '3,019', c: '#40264A' },
+      { id: 6, name: '[Artist F]', disc: 'Music', chain: 'Polygon', collectors: '640', c: '#2E3A22' },
+      { id: 7, name: '[Artist G]', disc: 'Generative', chain: 'Arbitrum', collectors: '975', c: '#4A2F2F' },
+      { id: 8, name: '[Artist H]', disc: 'Photography', chain: 'Base', collectors: '221', c: '#33304A' }
+    ];
+    const list = st.disc === 'All' ? all : all.filter((a) => a.disc === st.disc);
+    const tone = (c, k) => 'aspect-ratio: 1 / 1; border-radius: 6px; background: ' + c + '; opacity: ' + k;
+    return {
+      disciplines: discs.map((d) => ({
+        label: d, pressed: String(st.disc === d), pick: () => this.setState({ disc: d }),
+        style: 'height: 36px; padding: 0 14px; border-radius: 18px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ' + (st.disc === d ? 'border: 1px solid #F2F2F3; background: #F2F2F3; color: #0B0B0C' : 'border: 1px solid #2A2B30; background: transparent; color: #C4C6CC')
+      })),
+      rising: [['[Artist E]', '+340%', '#40264A'], ['[Artist D]', '+210%', '#1F3A3A'], ['[Artist G]', '+96%', '#4A2F2F'], ['[Artist B]', '+71%', '#22304A']].map(([name, growth, c], i) => ({
+        n: i + 1, name, growth: growth + ' followers', avatar: 'width: 32px; height: 32px; border-radius: 16px; flex: none; background: ' + c
+      })),
+      artists: list.map((a) => {
+        const on = !!st.follows[a.id];
+        return {
+          ...a, on: String(on), btnText: on ? 'Following' : 'Follow',
+          w1: tone(a.c, 1), w2: tone(a.c, 0.75), w3: tone(a.c, 0.5),
+          avatar: 'width: 36px; height: 36px; border-radius: 18px; flex: none; border: 2px solid #0B0B0C; background: ' + a.c,
+          btn: 'height: 36px; padding: 0 14px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; ' + (on ? 'border: 1px solid #2A2B30; background: transparent; color: #F2F2F3' : 'border: 0; background: #FF8A00; color: #0B0B0C'),
+          toggle: () => this.setState({ follows: { ...st.follows, [a.id]: !on } })
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

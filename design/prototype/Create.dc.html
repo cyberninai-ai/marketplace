@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create collection — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.field{height:44px;padding:0 12px;border:1px solid #2A2B30;border-radius:8px;background:#0B0B0C;color:#F2F2F3;font:inherit;font-size:14px;box-sizing:border-box;width:100%}
+.field:focus{border-color:#FF8A00;outline:1px solid #FF8A00}
+textarea.field{height:auto;padding:10px 12px;line-height:1.5;resize:vertical}
+.lbl{font-size:13px;font-weight:500;color:#C4C6CC}
+.hint{font-size:12px;color:#8C8F98}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <div style="display: flex; align-items: center; gap: 16px">
+        <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+        <span style="font-size: 14px; color: #A3A6AE">Creator studio</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 12px; color: #8C8F98">Draft saved</span>
+        <span class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #1B1C20; font-size: 13px">0x7a…3f21</span>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+    <nav aria-label="Setup steps" style="flex: 1 1 240px; max-width: 100%; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8C8F98; padding: 0 10px 8px">New collection</span>
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="7">
+        <button type="button" onClick="{{s.go}}" aria-current="{{s.current}}" style="{{s.style}}">
+          <span class="mono" style="{{s.dot}}">{{s.mark}}</span>
+          <span style="display: flex; flex-direction: column; gap: 1px; text-align: left">
+            <span style="font-size: 14px; font-weight: 600">{{s.label}}</span>
+            <span style="font-size: 12px; color: #8C8F98">{{s.sub}}</span>
+          </span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <main style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+      <!-- 1 Details -->
+      <sc-if value="{{is0}}" hint-placeholder-val="{{ true }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Collection details</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">What collectors see on the drop page and in search.</p></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="nm" class="lbl">Name</label><input id="nm" class="field" value="{{name}}" onInput="{{setName}}"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="sym" class="lbl">Symbol</label><input id="sym" class="field mono" value="{{symbol}}" onInput="{{setSymbol}}" maxlength="8"><span class="hint">Shown in wallets. Up to 8 characters.</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="ds" class="lbl">Description</label><textarea id="ds" class="field" rows="4" placeholder="What is it, who made it, what holders get."></textarea></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <label style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 140px; border: 1.5px dashed #2A2B30; border-radius: 12px; cursor: pointer; text-align: center"><span style="font-size: 14px; font-weight: 600">Logo</span><span class="hint">Square · 400×400+</span><input type="file" accept="image/*" class="sr-only"></label>
+            <label style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 140px; border: 1.5px dashed #2A2B30; border-radius: 12px; cursor: pointer; text-align: center"><span style="font-size: 14px; font-weight: 600">Banner</span><span class="hint">1400×400 recommended</span><input type="file" accept="image/*" class="sr-only"></label>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cat" class="lbl">Category</label><select id="cat" class="field"><option>Art</option><option>Gaming</option><option>PFP</option><option>Photography</option><option>Music</option></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="links" class="lbl">Links</label><input id="links" class="field" placeholder="Website, X, Discord"></div>
+          </div>
+        </section>
+      </sc-if>
+
+      <!-- 2 Chain & contract -->
+      <sc-if value="{{is1}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Chain &amp; contract</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">You own the contract. We deploy it from your wallet.</p></div>
+          <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+            <legend class="lbl" style="padding-bottom: 10px">Chain</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px">
+              <sc-for list="{{chains}}" as="c" hint-placeholder-count="6">
+                <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">
+                  <span style="font-size: 15px; font-weight: 600">{{c.label}}</span>
+                  <span class="mono" style="font-size: 12px; color: #8C8F98">{{c.meta}}</span>
+                </button>
+              </sc-for>
+            </div>
+          </fieldset>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="std" class="lbl">Token standard</label><select id="std" class="field mono"><sc-for list="{{standards}}" as="sd" hint-placeholder-count="2"><option>{{sd}}</option></sc-for></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="sup" class="lbl">Max supply</label><input id="sup" class="field mono" inputmode="numeric" value="{{supply}}" onInput="{{setSupply}}"></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="roy" class="lbl">Creator royalty</label><div style="display: flex; align-items: center; gap: 8px"><input id="roy" class="field mono" inputmode="decimal" value="{{royalty}}" onInput="{{setRoyalty}}"><span class="mono" style="color: #8C8F98">%</span></div><span class="hint">Paid to you on every resale. Max 10%.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="pay" class="lbl">Payout address</label><input id="pay" class="field mono" value="0x7a1c…3f21"><span class="hint">Mint revenue and royalties go here. Use a multisig for teams.</span></div>
+          </div>
+        </section>
+      </sc-if>
+
+      <!-- 3 Artwork -->
+      <sc-if value="{{is2}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Artwork &amp; metadata</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">Upload once. We pin everything to permanent storage.</p></div>
+          <label style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 180px; padding: 24px; border: 1.5px dashed #2A2B30; border-radius: 14px; background: #141416; cursor: pointer; text-align: center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C4C6CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M7 9l5-5 5 5"></path><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"></path></svg>
+            <span style="font-size: 15px; font-weight: 600">Drop a folder or .zip of media</span>
+            <span class="hint">PNG, GIF, MP4, GLB · files named 1…N match metadata rows</span>
+            <input type="file" multiple class="sr-only">
+          </label>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid #222327; border-radius: 12px; background: #141416">
+            <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Traits / metadata</span><span class="hint">CSV with one row per token. <a href="#">Download template</a></span></span>
+            <label style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer">Upload CSV<input type="file" accept=".csv" class="sr-only"></label>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="stor" class="lbl">Storage</label><select id="stor" class="field"><option>IPFS (pinned)</option><option>Arweave (permanent)</option><option>On-chain</option></select></div>
+            <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px">
+              <legend class="lbl" style="padding-bottom: 6px">Reveal</legend>
+              <div style="display: flex; gap: 8px">
+                <sc-for list="{{reveals}}" as="r" hint-placeholder-count="2">
+                  <button type="button" onClick="{{r.pick}}" aria-pressed="{{r.pressed}}" style="{{r.style}}">{{r.label}}</button>
+                </sc-for>
+              </div>
+            </fieldset>
+          </div>
+          <sc-if value="{{delayed}}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding: 16px; border: 1px solid #222327; border-radius: 12px">
+              <label style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; height: 96px; border: 1.5px dashed #2A2B30; border-radius: 10px; cursor: pointer"><span style="font-size: 13px; font-weight: 600">Placeholder image</span><span class="hint">Shown until reveal</span><input type="file" class="sr-only"></label>
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="rv" class="lbl">Reveal when</label><select id="rv" class="field"><option>Sold out or public ends</option><option>On a date</option><option>Manually</option></select></div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-if>
+
+      <!-- 4 Mint phases -->
+      <sc-if value="{{is3}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Mint phases</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">Phases run in order. Each can have its own price, limit and allowlist.</p></div>
+
+          <div aria-hidden="true" style="display: flex; gap: 4px; height: 36px">
+            <sc-for list="{{phases}}" as="p" hint-placeholder-count="2">
+              <span style="{{p.bar}}">{{p.name}}</span>
+            </sc-for>
+          </div>
+
+          <sc-for list="{{phases}}" as="p" hint-placeholder-count="2">
+            <div style="padding: 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-direction: column; gap: 14px">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+                <span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="width: 24px; height: 24px; border-radius: 12px; background: #2A2B30; display: inline-flex; align-items: center; justify-content: center; font-size: 12px">{{p.n}}</span><span style="font-size: 15px; font-weight: 600">{{p.name}}</span><span style="{{p.badge}}">{{p.access}}</span></span>
+                <button type="button" onClick="{{p.remove}}" aria-label="{{p.removeLabel}}" style="height: 36px; padding: 0 10px; border: 0; background: transparent; color: #8C8F98; font: inherit; font-size: 13px; cursor: pointer">Remove</button>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+                <div style="display: flex; flex-direction: column; gap: 6px"><label class="lbl" for="{{p.idName}}">Phase name</label><input id="{{p.idName}}" class="field" value="{{p.name}}" onInput="{{p.setName}}"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label class="lbl" for="{{p.idAccess}}">Who can mint</label><select id="{{p.idAccess}}" class="field" value="{{p.access}}" onChange="{{p.setAccess}}"><option>Allowlist</option><option>Holders</option><option>Public</option></select></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label class="lbl" for="{{p.idStart}}">Starts</label><input id="{{p.idStart}}" class="field mono" value="{{p.start}}" onInput="{{p.setStart}}"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label class="lbl" for="{{p.idPrice}}">Price (Ξ)</label><input id="{{p.idPrice}}" class="field mono" inputmode="decimal" value="{{p.price}}" onInput="{{p.setPrice}}"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label class="lbl" for="{{p.idLimit}}">Per wallet</label><input id="{{p.idLimit}}" class="field mono" inputmode="numeric" value="{{p.limit}}" onInput="{{p.setLimit}}"></div>
+              </div>
+            </div>
+          </sc-for>
+          <button type="button" onClick="{{addPhase}}" style="height: 48px; border: 1.5px dashed #2A2B30; border-radius: 12px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">+ Add phase</button>
+        </section>
+      </sc-if>
+
+      <!-- 5 Allowlist -->
+      <sc-if value="{{is4}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Allowlist</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">Wallets that can mint in allowlist phases. Stored as a Merkle root, so it's cheap to update.</p></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
+            <sc-for list="{{sources}}" as="so" hint-placeholder-count="3">
+              <button type="button" onClick="{{so.pick}}" aria-pressed="{{so.pressed}}" style="{{so.style}}">
+                <span style="font-size: 14px; font-weight: 600">{{so.label}}</span>
+                <span style="font-size: 12px; color: #8C8F98">{{so.sub}}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="al" class="lbl">Addresses <span class="hint">· one per line, ENS ok, optional ",limit"</span></label>
+            <textarea id="al" class="field mono" rows="7" value="{{alText}}" onInput="{{setAl}}" style="font-size: 13px"></textarea>
+          </div>
+          <div class="mono" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px">
+            <span style="padding: 6px 10px; border-radius: 6px; background: #12321F; color: #3DD68C">{{alValid}} valid</span>
+            <span style="{{alInvalidStyle}}">{{alInvalid}} invalid</span>
+            <span style="padding: 6px 10px; border-radius: 6px; background: #1B1C20; color: #C4C6CC">{{alDupes}} duplicates removed</span>
+          </div>
+          <div style="padding: 14px 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+            <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Applies to</span><span class="hint">{{alPhases}}</span></span>
+            <span class="mono" style="font-size: 12px; color: #8C8F98">Merkle root 0x4be1…a09c</span>
+          </div>
+        </section>
+      </sc-if>
+
+      <!-- 6 Review & deploy -->
+      <sc-if value="{{is5}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Review &amp; deploy</h1><p class="hint" style="margin: 6px 0 0; font-size: 14px">Check the essentials. Contract settings can't change after deploy; phases and allowlist can.</p></div>
+          <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; border: 1px solid #222327; border-radius: 12px; overflow: hidden; background: #222327">
+            <div style="padding: 14px; background: #141416"><dt class="hint">Collection</dt><dd style="margin: 4px 0 0; font-weight: 600">{{name}} · <span class="mono">{{symbol}}</span></dd></div>
+            <div style="padding: 14px; background: #141416"><dt class="hint">Chain</dt><dd style="margin: 4px 0 0; font-weight: 600">{{chainLabel}}</dd></div>
+            <div style="padding: 14px; background: #141416"><dt class="hint">Supply</dt><dd class="mono" style="margin: 4px 0 0; font-weight: 600">{{supply}}</dd></div>
+            <div style="padding: 14px; background: #141416"><dt class="hint">Royalty</dt><dd class="mono" style="margin: 4px 0 0; font-weight: 600">{{royalty}}%</dd></div>
+            <div style="padding: 14px; background: #141416"><dt class="hint">Phases</dt><dd style="margin: 4px 0 0; font-weight: 600">{{phaseSummary}}</dd></div>
+            <div style="padding: 14px; background: #141416"><dt class="hint">Allowlist</dt><dd class="mono" style="margin: 4px 0 0; font-weight: 600">{{alValid}} wallets</dd></div>
+          </dl>
+          <div style="display: flex; flex-direction: column; border: 1px solid #222327; border-radius: 12px; overflow: hidden">
+            <sc-for list="{{txs}}" as="tx" hint-placeholder-count="4">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #222327; background: #141416">
+                <span style="{{tx.dot}}">{{tx.icon}}</span>
+                <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">{{tx.label}}</span><span class="hint">{{tx.sub}}</span></span>
+                <span class="mono" style="{{tx.statusStyle}}">{{tx.status}}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div class="mono" style="display: flex; justify-content: space-between; font-size: 13px; color: #A3A6AE"><span>4 wallet signatures</span><span>Est. gas ~0.018 Ξ</span></div>
+        </section>
+      </sc-if>
+
+      <!-- 7 Live -->
+      <sc-if value="{{is6}}" hint-placeholder-val="{{ false }}">
+        <section style="display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="{{liveBadge}}"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 4px; background: currentColor"></span>{{liveText}}</span>
+              <h1 style="margin: 0; font-size: 26px; font-weight: 700">{{name}} is live</h1>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <a href="Mint.dc.html" style="display: inline-flex; align-items: center; height: 44px; padding: 0 16px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 14px; font-weight: 700; text-decoration: none">View drop page</a>
+              <button type="button" onClick="{{copyLink}}" style="height: 44px; padding: 0 16px; border: 1px solid #2A2B30; border-radius: 10px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{copyText}}</button>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px">
+            <div style="padding: 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-direction: column; gap: 4px"><span class="hint">Minted</span><span class="mono" style="font-size: 22px; font-weight: 600">1,284 <span style="font-size: 13px; color: #8C8F98">/ {{supply}}</span></span></div>
+            <div style="padding: 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-direction: column; gap: 4px"><span class="hint">Revenue</span><span class="mono" style="font-size: 22px; font-weight: 600">25.68 Ξ</span></div>
+            <div style="padding: 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-direction: column; gap: 4px"><span class="hint">Unique minters</span><span class="mono" style="font-size: 22px; font-weight: 600">811</span></div>
+            <div style="padding: 16px; border: 1px solid #222327; border-radius: 12px; background: #141416; display: flex; flex-direction: column; gap: 4px"><span class="hint">Current phase</span><span style="font-size: 18px; font-weight: 600">{{currentPhase}}</span><span class="mono hint">Next in 03:41:12</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="lbl">Phase timeline</span>
+            <div style="display: flex; gap: 4px; height: 36px">
+              <sc-for list="{{phases}}" as="p" hint-placeholder-count="2"><span style="{{p.liveBar}}">{{p.name}}</span></sc-for>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
+            <button type="button" onClick="{{togglePause}}" style="height: 48px; border: 1px solid #2A2B30; border-radius: 10px; background: #141416; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{pauseText}}</button>
+            <button type="button" onClick="{{goPhases}}" style="height: 48px; border: 1px solid #2A2B30; border-radius: 10px; background: #141416; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Edit phases &amp; allowlist</button>
+            <button type="button" style="height: 48px; border: 1px solid #2A2B30; border-radius: 10px; background: #141416; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Reveal now</button>
+            <button type="button" style="height: 48px; border: 1px solid #FF8A00; border-radius: 10px; background: transparent; color: #FF8A00; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer">Withdraw 25.68 Ξ</button>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{showNav}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid #222327">
+          <button type="button" onClick="{{back}}" disabled="{{isFirst}}" style="height: 48px; padding: 0 20px; border: 1px solid #2A2B30; border-radius: 10px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button>
+          <button type="button" onClick="{{next}}" disabled="{{deploying}}" style="height: 48px; padding: 0 24px; border: 0; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">{{nextText}}</button>
+        </div>
+      </sc-if>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      step: 0, name: 'Orbital Studies', symbol: 'ORBIT', chain: 'base', supply: '5000', royalty: '5',
+      reveal: 'delayed', source: 'paste', paused: false, copied: false, deployStage: -1, nextId: 3,
+      phases: [
+        { id: 1, name: 'Allowlist', access: 'Allowlist', start: 'Oct 10 · 17:00 UTC', price: '0.02', limit: '2' },
+        { id: 2, name: 'Public', access: 'Public', start: 'Oct 10 · 21:00 UTC', price: '0.03', limit: '5' }
+      ],
+      al: '0x8f3e2b1a9c4d7e6f5a0b1c2d3e4f5a6b7c8d9e0f\nvitalik.eth\n0x1234abcd5678ef901234abcd5678ef901234abcd,3\n0x1234abcd5678ef901234abcd5678ef901234abcd\n0xnotanaddress'
+    };
+  }
+  componentWillUnmount() { clearTimeout(this.timer); }
+  runDeploy() {
+    this.setState({ deployStage: 0 });
+    const tick = () => {
+      const s = this.state.deployStage + 1;
+      this.setState({ deployStage: s });
+      if (s < 4) this.timer = setTimeout(tick, 900);
+    };
+    this.timer = setTimeout(tick, 900);
+  }
+  setPhase(id, key, val) {
+    this.setState({ phases: this.state.phases.map((p) => (p.id === id ? { ...p, [key]: val } : p)) });
+  }
+  renderVals() {
+    const st = this.state;
+    const labels = [
+      ['Details', 'Name, art, links'], ['Chain & contract', 'Network, supply, royalty'], ['Artwork', 'Media, traits, reveal'],
+      ['Mint phases', 'Allowlist → public'], ['Allowlist', 'Who gets early access'], ['Review & deploy', 'Sign and launch'], ['Live', 'Monitor and manage']
+    ];
+    const chains = [
+      ['eth', 'Ethereum', 'ERC-721A · high gas'], ['base', 'Base', 'ERC-721A · low gas'], ['arb', 'Arbitrum', 'ERC-721A · low gas'],
+      ['pol', 'Polygon', 'ERC-721A · lowest gas'], ['sol', 'Solana', 'Metaplex Core'], ['btc', 'Bitcoin', 'Ordinals inscription']
+    ];
+    const chain = chains.find((c) => c[0] === st.chain);
+    const choice = (on) => 'display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px; border-radius: 12px; background: ' + (on ? '#1E150B' : '#141416') + '; border: 1px solid ' + (on ? '#FF8A00' : '#222327') + '; color: #F2F2F3; font: inherit; cursor: pointer; text-align: left';
+    const pill = (on) => 'height: 44px; padding: 0 16px; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid ' + (on ? '#FF8A00' : '#2A2B30') + '; background: ' + (on ? '#1E150B' : 'transparent') + '; color: ' + (on ? '#FF8A00' : '#F2F2F3');
+    const accessBadge = (a) => 'padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; ' + (a === 'Public' ? 'background: #1B1C20; color: #C4C6CC' : 'background: #1E150B; color: #FF8A00');
+
+    const lines = st.al.split('\n').map((l) => l.trim()).filter(Boolean);
+    const seen = {}; let valid = 0, invalid = 0, dupes = 0;
+    lines.forEach((l) => {
+      const addr = l.split(',')[0].trim().toLowerCase();
+      if (!/^0x[0-9a-f]{40}$/.test(addr) && !/^[a-z0-9-]+\.eth$/.test(addr)) { invalid++; return; }
+      if (seen[addr]) { dupes++; return; }
+      seen[addr] = 1; valid++;
+    });
+    const alPh = st.phases.filter((p) => p.access === 'Allowlist').map((p) => p.name);
+
+    const txNames = [['Deploy contract', 'ERC-721A on ' + chain[1]], ['Upload metadata', 'Pin media + traits'], ['Set allowlist root', valid + ' wallets'], ['Configure phases', st.phases.length + ' phases, enable mint']];
+    const ds = st.deployStage;
+    const deploying = ds >= 0 && ds < 4;
+    const deployed = ds >= 4;
+    const curPhase = st.phases[0] ? st.phases[0].name : '—';
+
+    let nextText = 'Continue';
+    if (st.step === 5) nextText = deployed ? 'Go live' : deploying ? 'Deploying…' : 'Deploy & sign';
+    return {
+      steps: labels.map(([label, sub], i) => {
+        const cur = i === st.step, done = i < st.step;
+        return {
+          label, sub, current: cur ? 'step' : 'false', mark: done ? '✓' : String(i + 1),
+          go: () => { if (i < 6 || deployed) this.setState({ step: i }); },
+          style: 'display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px 10px; border: 0; border-radius: 10px; font: inherit; color: ' + (i === 6 && !deployed ? '#5E616A' : '#F2F2F3') + '; cursor: pointer; background: ' + (cur ? '#1B1C20' : 'transparent'),
+          dot: 'width: 26px; height: 26px; flex: none; border-radius: 13px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; ' + (cur ? 'background: #FF8A00; color: #0B0B0C' : done ? 'background: #2A2B30; color: #3DD68C' : 'border: 1px solid #2A2B30; color: #8C8F98')
+        };
+      }),
+      is0: st.step === 0, is1: st.step === 1, is2: st.step === 2, is3: st.step === 3, is4: st.step === 4, is5: st.step === 5, is6: st.step === 6,
+      name: st.name, symbol: st.symbol, supply: st.supply, royalty: st.royalty, chainLabel: chain[1],
+      setName: (e) => this.setState({ name: e.target.value }),
+      setSymbol: (e) => this.setState({ symbol: e.target.value.toUpperCase() }),
+      setSupply: (e) => this.setState({ supply: e.target.value.replace(/[^0-9]/g, '') }),
+      setRoyalty: (e) => this.setState({ royalty: e.target.value }),
+      chains: chains.map(([id, label, meta]) => ({ label, meta, pressed: String(st.chain === id), style: choice(st.chain === id), pick: () => this.setState({ chain: id }) })),
+      standards: st.chain === 'sol' ? ['Metaplex Core', 'Compressed NFT'] : st.chain === 'btc' ? ['Ordinals (parent/child)'] : ['ERC-721A', 'ERC-1155'],
+      reveals: [['instant', 'Instant'], ['delayed', 'Delayed']].map(([id, label]) => ({ label, pressed: String(st.reveal === id), style: pill(st.reveal === id), pick: () => this.setState({ reveal: id }) })),
+      delayed: st.reveal === 'delayed',
+      phases: st.phases.map((p, i) => {
+        const w = 'flex: 1; display: flex; align-items: center; padding: 0 12px; border-radius: 6px; font-size: 12px; font-weight: 600; overflow: hidden; white-space: nowrap; ';
+        return {
+          ...p, n: i + 1, badge: accessBadge(p.access), removeLabel: 'Remove phase ' + p.name,
+          idName: 'pn' + p.id, idAccess: 'pa' + p.id, idStart: 'ps' + p.id, idPrice: 'pp' + p.id, idLimit: 'pl' + p.id,
+          bar: w + (p.access === 'Public' ? 'background: #2A2B30; color: #F2F2F3' : 'background: #FF8A00; color: #0B0B0C'),
+          liveBar: w + (i === 0 ? 'background: #FF8A00; color: #0B0B0C' : 'background: #1B1C20; color: #8C8F98; border: 1px solid #2A2B30'),
+          setName: (e) => this.setPhase(p.id, 'name', e.target.value),
+          setAccess: (e) => this.setPhase(p.id, 'access', e.target.value),
+          setStart: (e) => this.setPhase(p.id, 'start', e.target.value),
+          setPrice: (e) => this.setPhase(p.id, 'price', e.target.value),
+          setLimit: (e) => this.setPhase(p.id, 'limit', e.target.value),
+          remove: () => this.setState({ phases: st.phases.filter((x) => x.id !== p.id) })
+        };
+      }),
+      addPhase: () => this.setState({ nextId: st.nextId + 1, phases: st.phases.concat({ id: st.nextId, name: 'Holders', access: 'Holders', start: '[Start time]', price: '0.015', limit: '1' }) }),
+      sources: [['paste', 'Paste / CSV', 'Addresses you collected'], ['snapshot', 'Holder snapshot', 'Holders of any collection'], ['claim', 'Claim page', 'Fans submit wallets, you approve']].map(([id, label, sub]) => ({
+        label, sub, pressed: String(st.source === id), style: choice(st.source === id), pick: () => this.setState({ source: id })
+      })),
+      alText: st.al, setAl: (e) => this.setState({ al: e.target.value }),
+      alValid: valid, alInvalid: invalid, alDupes: dupes,
+      alInvalidStyle: 'padding: 6px 10px; border-radius: 6px; ' + (invalid ? 'background: #3A1A1A; color: #FF9A9A' : 'background: #1B1C20; color: #C4C6CC'),
+      alPhases: alPh.length ? alPh.join(', ') + ' phase' + (alPh.length > 1 ? 's' : '') : 'No allowlist phase yet. Add one in Mint phases.',
+      phaseSummary: st.phases.map((p) => p.name).join(' → ') || '—',
+      txs: txNames.map(([label, sub], i) => {
+        const done = ds > i, active = ds === i;
+        return {
+          label, sub, icon: done ? '✓' : String(i + 1),
+          status: done ? 'Confirmed' : active ? 'Confirm in wallet…' : 'Pending',
+          statusStyle: 'font-size: 12px; color: ' + (done ? '#3DD68C' : active ? '#FF8A00' : '#8C8F98'),
+          dot: 'width: 28px; height: 28px; flex: none; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; ' + (done ? 'background: #12321F; color: #3DD68C' : active ? 'background: #FF8A00; color: #0B0B0C' : 'border: 1px solid #2A2B30; color: #8C8F98')
+        };
+      }),
+      deploying,
+      showNav: st.step < 6, isFirst: st.step === 0, nextText,
+      back: () => this.setState({ step: Math.max(0, st.step - 1) }),
+      next: () => {
+        if (st.step < 5) this.setState({ step: st.step + 1 });
+        else if (deployed) this.setState({ step: 6 });
+        else if (!deploying) this.runDeploy();
+      },
+      liveText: st.paused ? 'Paused' : 'Live · ' + curPhase + ' phase',
+      liveBadge: 'align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 13px; font-size: 12px; font-weight: 600; ' + (st.paused ? 'background: #1B1C20; color: #C4C6CC' : 'background: #12321F; color: #3DD68C'),
+      currentPhase: curPhase,
+      pauseText: st.paused ? 'Resume mint' : 'Pause mint',
+      togglePause: () => this.setState({ paused: !st.paused }),
+      goPhases: () => this.setState({ step: 3 }),
+      copyText: st.copied ? 'Link copied' : 'Copy mint link',
+      copyLink: () => this.setState({ copied: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>List items — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.field{height:40px;padding:0 10px;border:1px solid #2A2B30;border-radius:8px;background:#0B0B0C;color:#F2F2F3;font:inherit;font-size:14px;box-sizing:border-box}
+.field:focus{border-color:#FF8A00;outline:1px solid #FF8A00}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Discover</a>
+        <a href="Collection.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Collections</a>
+        <a href="Mint.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Drops</a>
+        <a href="Sell.dc.html" aria-current="page" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; background: #1B1C20; color: #F2F2F3; text-decoration: none">List</a>
+        <a href="Create.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Create</a>
+      </nav>
+      <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+    </div>
+  </header>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div><h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">List items</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">One signature for all. Listing is free; no gas until it sells.</p></div>
+      <div role="group" aria-label="Set all prices" style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span style="display: inline-flex; align-items: center; font-size: 13px; color: #8C8F98; padding-right: 4px">Set all to</span>
+        <sc-for list="{{presets}}" as="p" hint-placeholder-count="3">
+          <button type="button" onClick="{{p.apply}}" style="height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{p.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <sc-if value="{{editing}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+        <section aria-label="Items to list" style="flex: 999 1 600px; min-width: 0; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow-x: auto">
+          <div class="mono" style="min-width: 600px; display: grid; grid-template-columns: minmax(0, 2fr) 90px 90px 150px; gap: 12px; padding: 10px 16px; font-size: 11px; color: #8C8F98; border-bottom: 1px solid #222327">
+            <span>Item</span><span style="text-align: right">Floor</span><span style="text-align: right">Top offer</span><span>Your price (Ξ)</span>
+          </div>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+            <div style="min-width: 600px; display: grid; grid-template-columns: minmax(0, 2fr) 90px 90px 150px; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #222327">
+              <span style="display: flex; align-items: center; gap: 12px; min-width: 0">
+                <span aria-hidden="true" style="{{r.art}}"></span>
+                <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 14px; font-weight: 600">{{r.collection}}</span><span class="mono" style="font-size: 12px; color: #8C8F98">#{{r.id}} · Rank {{r.rank}}</span></span>
+              </span>
+              <span class="mono" style="text-align: right; font-size: 13px">{{r.floor}}</span>
+              <span class="mono" style="text-align: right; font-size: 13px; color: #A3A6AE">{{r.offer}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px">
+                <label class="sr-only" for="{{r.inputId}}">Price for #{{r.id}}</label>
+                <input id="{{r.inputId}}" class="field mono" inputmode="decimal" value="{{r.price}}" onInput="{{r.set}}" style="width: 100%">
+                <span class="mono" style="{{r.deltaStyle}}">{{r.delta}}</span>
+              </span>
+            </div>
+          </sc-for>
+        </section>
+
+        <aside aria-label="Listing summary" style="flex: 1 1 300px; min-width: 0; padding: 20px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="dur" style="font-size: 13px; font-weight: 500; color: #C4C6CC">Duration</label>
+            <select id="dur" class="field" style="width: 100%"><option>7 days</option><option>1 day</option><option>30 days</option><option>Until cancelled</option></select>
+          </div>
+          <div class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Listed total</span><span>{{gross}} Ξ</span></div>
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Marketplace fee 0.5%</span><span>−{{fee}} Ξ</span></div>
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Creator royalty 5%</span><span>−{{royalty}} Ξ</span></div>
+          </div>
+          <div class="mono" style="display: flex; justify-content: space-between; padding-top: 12px; border-top: 1px solid #2A2B30; font-size: 17px; font-weight: 700"><span>You receive</span><span>{{net}} Ξ</span></div>
+          <button type="button" onClick="{{list}}" style="height: 48px; border: 0; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">List {{count}} items</button>
+          <span style="font-size: 12px; line-height: 1.5; color: #8C8F98">Listings below floor are flagged so you don't underprice by accident.</span>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 480px; width: 100%; margin: 24px auto; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+        <div aria-hidden="true" style="width: 56px; height: 56px; border-radius: 28px; background: #12321F; display: flex; align-items: center; justify-content: center">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+        </div>
+        <h2 style="margin: 0; font-size: 24px; font-weight: 700">{{count}} items listed</h2>
+        <p class="mono" style="margin: 0; font-size: 14px; color: #A3A6AE">You'll receive {{net}} Ξ if all sell.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; width: 100%">
+          <a href="Collection.dc.html" style="flex: 1 1 160px; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 15px; font-weight: 700; text-decoration: none">View in collection</a>
+          <button type="button" onClick="{{edit}}" style="flex: 1 1 160px; height: 48px; border: 1px solid #2A2B30; border-radius: 10px; background: transparent; color: #F2F2F3; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Edit prices</button>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      done: false,
+      items: [
+        { id: 4021, collection: 'Quiet Machines', rank: 3120, floor: 0.842, offer: 0.81, price: '0.869', c: '#3B2A4A' },
+        { id: 118, collection: 'Quiet Machines', rank: 845, floor: 0.842, offer: 0.81, price: '0.95', c: '#2A3A4A' },
+        { id: 2201, collection: 'Orbital Studies', rank: 402, floor: 0.031, offer: 0.027, price: '0.025', c: '#4A3218' }
+      ]
+    };
+  }
+  setAll(fn) {
+    this.setState({ items: this.state.items.map((i) => ({ ...i, price: fn(i).toFixed(3) })) });
+  }
+  renderVals() {
+    const items = this.state.items;
+    const gross = items.reduce((s, i) => s + (parseFloat(i.price) || 0), 0);
+    const fee = gross * 0.005, roy = gross * 0.05;
+    return {
+      editing: !this.state.done, done: this.state.done,
+      presets: [
+        { label: 'Floor', apply: () => this.setAll((i) => i.floor) },
+        { label: 'Floor +5%', apply: () => this.setAll((i) => i.floor * 1.05) },
+        { label: 'Top offer', apply: () => this.setAll((i) => i.offer) }
+      ],
+      rows: items.map((i) => {
+        const p = parseFloat(i.price) || 0;
+        const d = i.floor ? (p / i.floor - 1) * 100 : 0;
+        const below = d < -0.05;
+        return {
+          ...i, floor: i.floor.toFixed(3), offer: i.offer.toFixed(3), inputId: 'price' + i.id,
+          art: 'width: 44px; height: 44px; flex: none; border-radius: 8px; background: ' + i.c,
+          delta: below ? d.toFixed(1) + '% below floor' : (d > 0.05 ? '+' + d.toFixed(1) + '% vs floor' : 'At floor'),
+          deltaStyle: 'font-size: 11px; color: ' + (below ? '#FF9A9A' : '#8C8F98'),
+          set: (e) => this.setState({ items: items.map((x) => (x.id === i.id ? { ...x, price: e.target.value } : x)) })
+        };
+      }),
+      count: items.length,
+      gross: gross.toFixed(3), fee: fee.toFixed(4), royalty: roy.toFixed(4), net: (gross - fee - roy).toFixed(4),
+      list: () => this.setState({ done: true }),
+      edit: () => this.setState({ done: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

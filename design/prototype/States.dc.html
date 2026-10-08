@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Errors and states — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.sk{background:#1B1C20;border-radius:8px;animation:pulse 1.6s ease-in-out infinite}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+  <main style="max-width: 1360px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 32px">
+    <div><h1 style="margin: 0; font-size: 28px; font-weight: 700">Errors, empty &amp; loading states</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">Every message says what happened, why, and the one thing to do next. Your funds are never touched by a failed step.</p></div>
+
+    <sc-for list="{{groups}}" as="g" hint-placeholder-count="4">
+      <section style="display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C8F98">{{g.title}}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
+          <sc-for list="{{g.items}}" as="s" hint-placeholder-count="3">
+            <article style="{{s.card}}">
+              <div style="display: flex; align-items: flex-start; gap: 12px">
+                <span aria-hidden="true" style="{{s.icon}}">{{s.glyph}}</span>
+                <div style="display: flex; flex-direction: column; gap: 4px">
+                  <h3 style="margin: 0; font-size: 15px; font-weight: 600">{{s.title}}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #A3A6AE">{{s.body}}</p>
+                  <sc-if value="{{s.hasCode}}" hint-placeholder-val="{{ false }}"><span class="mono" style="font-size: 11px; color: #8C8F98">{{s.code}}</span></sc-if>
+                </div>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                <button type="button" style="{{s.primaryStyle}}">{{s.primary}}</button>
+                <sc-if value="{{s.hasSecondary}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{s.secondary}}</button></sc-if>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <section style="display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C8F98">Toasts</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid #1F5A3A; border-radius: 10px; background: #0F2418; font-size: 13px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 4px; background: #3DD68C"></span>Purchase confirmed · <a href="#" class="mono">0x9f2c…71ab</a></div>
+        <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid #5A4120; border-radius: 10px; background: #221A0E; font-size: 13px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 4px; background: #FF8A00"></span>Transaction pending · usually under 30s</div>
+        <div role="alert" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid #5A2626; border-radius: 10px; background: #241010; font-size: 13px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 4px; background: #FF7A7A"></span>2 of 5 items sold before you signed · you paid for 3</div>
+        <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid #2A2B30; border-radius: 10px; background: #141416; font-size: 13px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 4px; background: #8C8F98"></span>Floor alert: Quiet Machines below 0.75 Ξ</div>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8C8F98">Loading</h2>
+      <div aria-busy="true" aria-label="Loading items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 10px">
+        <sc-for list="{{skeletons}}" as="k" hint-placeholder-count="6">
+          <div style="border: 1px solid #222327; border-radius: 12px; overflow: hidden; background: #141416">
+            <div class="sk" style="aspect-ratio: 1 / 1; border-radius: 0"></div>
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 6px"><div class="sk" style="height: 10px; width: 50%"></div><div class="sk" style="height: 14px; width: 70%"></div></div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = {
+      error: { border: '#5A2626', bg: '#1A1012', fg: '#FF9A9A', ibg: '#3A1A1A', glyph: '×' },
+      warn: { border: '#5A4120', bg: '#18130C', fg: '#FFB04D', ibg: '#3A2A12', glyph: '!' },
+      info: { border: '#222327', bg: '#141416', fg: '#C4C6CC', ibg: '#2A2B30', glyph: 'i' },
+      empty: { border: '#2A2B30', bg: 'transparent', fg: '#8C8F98', ibg: '#1B1C20', glyph: '∅' }
+    };
+    const mk = (tone, title, body, primary, secondary, code) => {
+      const t = tones[tone];
+      return {
+        title, body, primary, secondary, code, hasCode: !!code, hasSecondary: !!secondary, glyph: t.glyph,
+        card: 'padding: 16px; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; border: 1px ' + (tone === 'empty' ? 'dashed ' : 'solid ') + t.border + '; background: ' + t.bg,
+        icon: 'width: 28px; height: 28px; flex: none; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-family: \'Geist Mono\', monospace; font-size: 14px; font-weight: 700; background: ' + t.ibg + '; color: ' + t.fg,
+        primaryStyle: 'height: 40px; padding: 0 14px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; ' + (tone === 'empty' || tone === 'info' ? 'border: 1px solid #2A2B30; background: #1B1C20; color: #F2F2F3' : 'border: 0; background: #FF8A00; color: #0B0B0C')
+      };
+    };
+    return {
+      groups: [
+        { title: 'Wallet & network', items: [
+          mk('info', 'Connect a wallet', 'Connect to buy, mint, list or check allowlists. We never ask for your seed phrase.', 'Connect wallet', 'What is a wallet?'),
+          mk('warn', 'Wrong network', 'This collection is on Base. Your wallet is on Ethereum.', 'Switch to Base', 'Cancel'),
+          mk('error', 'Not enough ETH on Base', 'You need 0.0402 Ξ including gas. You have 0.0120 Ξ.', 'Bridge funds', 'Buy with card'),
+          mk('warn', 'Wallet locked or not responding', 'Open your wallet extension and unlock it, then try again.', 'Try again', 'Use another wallet')
+        ] },
+        { title: 'Transactions', items: [
+          mk('info', 'Request cancelled', 'You rejected the request in your wallet. Nothing was sent.', 'Try again', 'Back'),
+          mk('error', 'Transaction failed', 'The network rejected it, likely because gas spiked. No ETH was spent besides the fee.', 'Retry with higher gas', 'View on explorer', 'Error: out of gas · 0x3a…be10'),
+          mk('warn', 'Taking longer than usual', 'The network is busy. You can wait or speed up with a higher fee.', 'Speed up', 'Keep waiting'),
+          mk('error', 'Signature expired', 'Listings were signed more than 15 minutes ago. Please sign again.', 'Sign again', null)
+        ] },
+        { title: 'Marketplace & minting', items: [
+          mk('warn', 'Item no longer available', 'Quiet Machines #118 sold before you checked out. Next cheapest is #2977 at 0.850 Ξ.', 'Swap in #2977', 'Remove'),
+          mk('error', 'Not on this allowlist', 'Wallet 0x7a…3f21 isn’t eligible for the Allowlist phase. Public opens Oct 10, 21:00 UTC.', 'Remind me', 'Check another wallet'),
+          mk('info', 'Mint limit reached', 'You’ve minted 2 of 2 allowed in this phase.', 'View my items', null),
+          mk('info', 'Sold out', 'All 5,000 minted. Floor is 0.031 Ξ on secondary.', 'Buy on secondary', 'Watch collection'),
+          mk('warn', 'Mint paused by creator', 'The creator paused minting. Your spot is kept.', 'Get notified', null),
+          mk('error', 'Flagged item', 'This item was reported as stolen. Trading is disabled until it’s reviewed.', 'Learn more', null)
+        ] },
+        { title: 'Empty & offline', items: [
+          mk('empty', 'No items yet', 'Things you buy or mint will show up here.', 'Explore drops', null),
+          mk('empty', 'No results', 'Nothing matches “quiet machine 9999”. Check the spelling or clear filters.', 'Clear filters', null),
+          mk('empty', 'Watchlist is empty', 'Star collections to track floors and get alerts.', 'Find collections', null),
+          mk('warn', 'You’re offline', 'Prices may be out of date. We’ll refresh when you reconnect.', 'Retry now', null)
+        ] }
+      ],
+      skeletons: [1, 2, 3, 4, 5, 6]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Settings — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.field{height:44px;padding:0 12px;border:1px solid #2A2B30;border-radius:8px;background:#0B0B0C;color:#F2F2F3;font:inherit;font-size:14px;box-sizing:border-box;width:100%}
+.field:focus{border-color:#FF8A00;outline:1px solid #FF8A00}
+.lbl{font-size:13px;font-weight:500;color:#C4C6CC}
+.hint{font-size:12px;color:#8C8F98}
+.card{padding:20px;border:1px solid #222327;border-radius:14px;background:#141416;display:flex;flex-direction:column;gap:16px}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html">Artists</a><a href="Communities.dc.html">Communities</a><a href="Causes.dc.html">Causes</a><a href="Institutions.dc.html">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width: 1100px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start">
+    <nav aria-label="Settings sections" style="flex: 1 1 220px; max-width: 100%; display: flex; flex-direction: column; gap: 2px">
+      <h1 style="margin: 0 0 12px; padding: 0 12px; font-size: 24px; font-weight: 700">Settings</h1>
+      <sc-for list="{{sections}}" as="s" hint-placeholder-count="6">
+        <button type="button" onClick="{{s.pick}}" aria-current="{{s.current}}" style="{{s.style}}">{{s.label}}</button>
+      </sc-for>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+      <sc-if value="{{isProfile}}" hint-placeholder-val="{{ true }}">
+        <section class="card" aria-label="Profile">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Profile</h2>
+          <div style="display: flex; align-items: center; gap: 16px">
+            <div aria-hidden="true" style="width: 64px; height: 64px; border-radius: 32px; background: #3B2A4A"></div>
+            <label style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer">Change avatar<input type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0"></label>
+            <span class="hint">Or use an NFT you own</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="un" class="lbl">Username</label><input id="un" class="field" value="[username]"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="em" class="lbl">Email <span class="hint">· private, for alerts</span></label><input id="em" class="field" type="email" placeholder="you@example.com"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="bio" class="lbl">Bio</label><textarea id="bio" class="field" rows="3" style="height: auto; padding: 10px 12px; resize: vertical"></textarea></div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="lbl">Verification</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Connect X</button>
+              <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Connect Discord</button>
+              <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #FF8A00; border-radius: 8px; background: transparent; color: #FF8A00; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Apply for artist verification</button>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isWallets}}" hint-placeholder-val="{{ false }}">
+        <section class="card" aria-label="Wallets">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Linked wallets</h2><button type="button" style="height: 40px; padding: 0 14px; border: 0; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">+ Link wallet</button></div>
+          <p class="hint" style="margin: 0; font-size: 13px">Assets from all linked wallets show in My assets. Each wallet signs its own transactions.</p>
+          <sc-for list="{{wallets}}" as="w" hint-placeholder-count="2">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #2A2B30; border-radius: 10px">
+              <span style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 2px"><span class="mono" style="font-size: 14px; font-weight: 600">{{w.addr}}</span><span class="hint">{{w.meta}}</span></span>
+              <span style="{{w.badgeStyle}}">{{w.badge}}</span>
+              <button type="button" style="height: 36px; padding: 0 10px; border: 0; background: transparent; color: #A3A6AE; font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer">{{w.action}}</button>
+            </div>
+          </sc-for>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isNotif}}" hint-placeholder-val="{{ false }}">
+        <section class="card" aria-label="Notifications">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Notifications</h2>
+          <sc-for list="{{toggles}}" as="t" hint-placeholder-count="6">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 0">
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">{{t.label}}</span><span class="hint">{{t.sub}}</span></span>
+              <button type="button" role="switch" aria-checked="{{t.on}}" aria-label="{{t.label}}" onClick="{{t.flip}}" style="{{t.track}}"><span style="{{t.knob}}"></span></button>
+            </div>
+          </sc-for>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 1px solid #222327"><label for="tg" class="lbl">Telegram handle</label><input id="tg" class="field" placeholder="@handle"></div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isTrading}}" hint-placeholder-val="{{ false }}">
+        <section class="card" aria-label="Offers and trading">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Offers &amp; trading</h2>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="minoff" class="lbl">Hide offers below</label><div style="display: flex; align-items: center; gap: 8px"><input id="minoff" class="field mono" value="80" style="max-width: 120px"><span class="hint">% of floor</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cur" class="lbl">Show prices in</label><select id="cur" class="field"><option>Native token (Ξ, SOL, ₿)</option><option>USD</option><option>EUR</option></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="slip" class="lbl">Sweep max price slippage</label><select id="slip" class="field mono"><option>2%</option><option>5%</option><option>10%</option></select></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span class="lbl">Approvals</span><span class="hint">3 collections can be moved by Market's contract. <a href="#">Review and revoke</a></span></div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isSecurity}}" hint-placeholder-val="{{ false }}">
+        <section class="card" aria-label="Security">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Security</h2>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Active sessions</span><span class="hint">This browser · signed in 2h ago</span></div>
+          <button type="button" style="align-self: flex-start; height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Sign out everywhere else</button>
+          <div style="padding: 14px; border: 1px solid #5A2626; border-radius: 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+            <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Delete account</span><span class="hint">Removes profile data. Your assets stay in your wallet.</span></span>
+            <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #FF7A7A; border-radius: 8px; background: transparent; color: #FF9A9A; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete…</button>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isDisplay}}" hint-placeholder-val="{{ false }}">
+        <section class="card" aria-label="Display">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Display</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{densities}}" as="d" hint-placeholder-count="2"><button type="button" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" style="{{d.style}}">{{d.label}}</button></sc-for>
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 14px"><input type="checkbox" checked style="accent-color: #FF8A00; margin: 0">Blur unrevealed and flagged media</label>
+          <label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 14px"><input type="checkbox" style="accent-color: #FF8A00; margin: 0">Show testnets</label>
+        </section>
+      </sc-if>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sec: 'Profile', density: 'Compact', on: { sales: true, offers: true, floor: true, mints: true, allow: true, news: false } };
+  }
+  renderVals() {
+    const st = this.state;
+    const secs = ['Profile', 'Wallets', 'Notifications', 'Offers & trading', 'Security', 'Display'];
+    const tg = [
+      ['sales', 'Item sold', 'When any of your listings sells'], ['offers', 'New offers', 'Above your minimum offer'],
+      ['floor', 'Price alerts', 'From your watchlist'], ['mints', 'Drops you follow', 'When a mint phase opens'],
+      ['allow', 'Allowlist results', 'When you are added or a spot opens'], ['news', 'Product news', 'Monthly at most']
+    ];
+    const pill = (on) => 'height: 40px; padding: 0 16px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid ' + (on ? '#FF8A00' : '#2A2B30') + '; background: ' + (on ? '#1E150B' : 'transparent') + '; color: ' + (on ? '#FF8A00' : '#F2F2F3');
+    return {
+      sections: secs.map((s) => ({
+        label: s, current: st.sec === s ? 'page' : 'false', pick: () => this.setState({ sec: s }),
+        style: 'height: 44px; padding: 0 12px; border: 0; border-radius: 8px; text-align: left; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; ' + (st.sec === s ? 'background: #1B1C20; color: #F2F2F3' : 'background: transparent; color: #A3A6AE')
+      })),
+      isProfile: st.sec === 'Profile', isWallets: st.sec === 'Wallets', isNotif: st.sec === 'Notifications',
+      isTrading: st.sec === 'Offers & trading', isSecurity: st.sec === 'Security', isDisplay: st.sec === 'Display',
+      wallets: [
+        { addr: '0x7a1c…3f21', meta: 'MetaMask · Ethereum, Base, Arbitrum', badge: 'PRIMARY', primary: true, action: 'Disconnect' },
+        { addr: '7Hq2…kP9x', meta: 'Phantom · Solana', badge: 'LINKED', primary: false, action: 'Make primary' },
+        { addr: 'bc1q…8w4m', meta: 'Xverse · Bitcoin', badge: 'LINKED', primary: false, action: 'Make primary' }
+      ].map((w) => ({ ...w, badgeStyle: 'padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; ' + (w.primary ? 'background: #1E150B; color: #FF8A00' : 'background: #1B1C20; color: #C4C6CC') })),
+      toggles: tg.map(([k, label, sub]) => {
+        const on = !!st.on[k];
+        return {
+          label, sub, on: String(on),
+          flip: () => this.setState({ on: { ...st.on, [k]: !on } }),
+          track: 'position: relative; flex: none; width: 44px; height: 26px; padding: 0; border: 0; border-radius: 13px; cursor: pointer; background: ' + (on ? '#FF8A00' : '#2A2B30'),
+          knob: 'position: absolute; top: 3px; left: ' + (on ? '21px' : '3px') + '; width: 20px; height: 20px; border-radius: 10px; background: ' + (on ? '#0B0B0C' : '#C4C6CC')
+        };
+      }),
+      densities: ['Compact', 'Comfortable'].map((d) => ({ label: d, pressed: String(st.density === d), style: pill(st.density === d), pick: () => this.setState({ density: d }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quiet Machines — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nft:hover{border-color:#3A3B42}
+input[type=range]{accent-color:#FF8A00}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Discover</a>
+        <a href="Collection.dc.html" aria-current="page" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; background: #1B1C20; color: #F2F2F3; text-decoration: none">Collections</a>
+        <a href="Mint.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Drops</a>
+        <a href="Sell.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">List</a>
+        <a href="Create.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Create</a>
+        <a href="Artists.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Artists</a>
+        <a href="Communities.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Communities</a>
+      </nav>
+      <form role="search" style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8C8F98" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <label for="q" class="sr-only">Search collections, wallets, items</label>
+        <input id="q" type="search" placeholder="Collections, wallets, items" style="flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 14px; color: #F2F2F3; outline: none">
+      </form>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Cart.dc.html" aria-label="Basket" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 14px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"></path><circle cx="9" cy="19.5" r="1.5"></circle><circle cx="17" cy="19.5" r="1.5"></circle></svg>
+          <span class="mono">{{count}}</span>
+        </a>
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px 24px 120px; display: flex; flex-direction: column; gap: 20px">
+
+    <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px">
+      <div aria-hidden="true" style="width: 72px; height: 72px; border-radius: 14px; background: #3B2A4A"></div>
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Quiet Machines</h1>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF8A00" aria-label="Verified"><path d="M12 2l2.6 2.1 3.3-.3.9 3.2 2.9 1.7-1.2 3.1 1.2 3.1-2.9 1.7-.9 3.2-3.3-.3L12 22l-2.6-2.1-3.3.3-.9-3.2-2.9-1.7 1.2-3.1-1.2-3.1 2.9-1.7.9-3.2 3.3.3z"></path><path d="M8 12.5l2.7 2.7L16 10" stroke="#0B0B0C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <span class="mono" style="font-size: 12px; color: #8C8F98">Ethereum · ERC-721 · 0x3c…9a1e · Royalty 5%</span>
+      </div>
+      <dl class="mono" style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px 24px; flex: 2 1 560px">
+        <div><dt style="font-size: 11px; color: #8C8F98">Floor</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600">0.842 Ξ</dd></div>
+        <div><dt style="font-size: 11px; color: #8C8F98">Top offer</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600">0.810 Ξ</dd></div>
+        <div><dt style="font-size: 11px; color: #8C8F98">24h vol</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600">312 Ξ</dd></div>
+        <div><dt style="font-size: 11px; color: #8C8F98">24h</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600; color: #3DD68C">+12.4%</dd></div>
+        <div><dt style="font-size: 11px; color: #8C8F98">Listed</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600">4.1%</dd></div>
+        <div><dt style="font-size: 11px; color: #8C8F98">Owners</dt><dd style="margin: 2px 0 0; font-size: 16px; font-weight: 600">2,904</dd></div>
+      </dl>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #222327">
+      <div role="tablist" aria-label="Collection views" style="display: flex; gap: 4px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+          <button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 8px">
+        <label for="sort" class="sr-only">Sort</label>
+        <select id="sort" style="height: 36px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font: inherit; font-size: 13px">
+          <option>Price: low to high</option><option>Price: high to low</option><option>Rarity</option><option>Recently listed</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <aside aria-label="Filters" style="flex: 1 1 220px; max-width: 100%; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; font-weight: 600; color: #8C8F98; text-transform: uppercase; letter-spacing: 0.06em">Status</span>
+          <label style="display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: 13px"><input type="checkbox" checked style="accent-color: #FF8A00; width: 16px; height: 16px; margin: 0">Buy now</label>
+          <label style="display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: 13px"><input type="checkbox" style="accent-color: #FF8A00; width: 16px; height: 16px; margin: 0">Has offers</label>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; font-weight: 600; color: #8C8F98; text-transform: uppercase; letter-spacing: 0.06em">Price (Ξ)</span>
+          <div style="display: flex; gap: 6px">
+            <label for="pmin" class="sr-only">Minimum price</label><input id="pmin" placeholder="Min" class="mono" style="width: 0; flex: 1; height: 36px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font-size: 13px">
+            <label for="pmax" class="sr-only">Maximum price</label><input id="pmax" placeholder="Max" class="mono" style="width: 0; flex: 1; height: 36px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416; color: #F2F2F3; font-size: 13px">
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; font-weight: 600; color: #8C8F98; text-transform: uppercase; letter-spacing: 0.06em">Traits</span>
+          <sc-for list="{{traits}}" as="tr" hint-placeholder-count="5">
+            <button type="button" style="display: flex; justify-content: space-between; align-items: center; height: 40px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: #F2F2F3; font: inherit; font-size: 13px; cursor: pointer; text-align: left">
+              <span>{{tr.name}}</span><span class="mono" style="color: #8C8F98">{{tr.count}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </aside>
+
+      <section aria-label="Items" style="flex: 999 1 640px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 10px">
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="12">
+          <button type="button" class="nft" onClick="{{it.toggle}}" aria-pressed="{{it.pressed}}" aria-label="{{it.label}}" style="{{it.style}}">
+            <span style="{{it.art}}">
+              <span class="mono" style="position: absolute; top: 8px; left: 8px; padding: 2px 6px; border-radius: 4px; background: #0B0B0CCC; font-size: 11px; color: #C4C6CC">R {{it.rank}}</span>
+              <span style="{{it.check}}">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </span>
+            <span style="display: flex; flex-direction: column; gap: 2px; padding: 10px; text-align: left">
+              <span class="mono" style="font-size: 12px; color: #A3A6AE">#{{it.id}}</span>
+              <span class="mono" style="font-size: 15px; font-weight: 600; color: #F2F2F3">{{it.price}} Ξ</span>
+            </span>
+          </button>
+        </sc-for>
+      </section>
+    </div>
+  </main>
+
+  <div style="position: sticky; bottom: 0; z-index: 4; border-top: 1px solid #222327; background: #111113">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1 1 360px">
+        <label for="sweep" style="font-size: 13px; font-weight: 600; white-space: nowrap">Sweep</label>
+        <input id="sweep" type="range" min="0" max="12" value="{{count}}" onInput="{{onSweep}}" style="flex: 1; min-width: 120px">
+        <span class="mono" style="min-width: 64px; font-size: 13px; color: #A3A6AE">{{count}} items</span>
+      </div>
+      <div class="mono" style="display: flex; gap: 20px; font-size: 13px">
+        <span><span style="color: #8C8F98">Total </span><strong>{{total}} Ξ</strong></span>
+        <span style="color: #8C8F98">Avg {{avg}} Ξ</span>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <button type="button" onClick="{{clear}}" style="height: 44px; padding: 0 16px; border: 1px solid #2A2B30; border-radius: 10px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Clear</button>
+        <a href="Cart.dc.html" style="display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 14px; font-weight: 700; text-decoration: none">Review {{count}} in basket</a>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'Items', sel: [0, 1, 2] };
+  }
+  renderVals() {
+    const prices = [0.842, 0.845, 0.85, 0.858, 0.86, 0.869, 0.88, 0.89, 0.9, 0.915, 0.94, 0.99];
+    const ids = [4021, 118, 2977, 3310, 77, 1290, 4512, 2048, 903, 3777, 1601, 2222];
+    const ranks = [3120, 845, 2210, 4019, 12, 1588, 3301, 990, 2765, 410, 1932, 2604];
+    const hues = ['#3B2A4A', '#2A3A4A', '#4A3A2A', '#2A4A3A', '#4A2A3A', '#3A4A2A', '#33304A', '#4A3326', '#26404A', '#40264A', '#2F4A2F', '#4A2F2F'];
+    const sel = this.state.sel;
+    const total = sel.reduce((s, i) => s + prices[i], 0);
+    const tabs = ['Items', 'Activity', 'Analytics', 'Holders'];
+    return {
+      tabs: tabs.map((t) => ({
+        label: t, selected: String(this.state.tab === t), pick: () => this.setState({ tab: t }),
+        style: 'height: 44px; padding: 0 14px; border: 0; border-bottom: 2px solid ' + (this.state.tab === t ? '#FF8A00' : 'transparent') + '; background: transparent; color: ' + (this.state.tab === t ? '#F2F2F3' : '#8C8F98') + '; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer'
+      })),
+      traits: [{ name: 'Background', count: 9 }, { name: 'Body', count: 14 }, { name: 'Eyes', count: 22 }, { name: 'Antenna', count: 6 }, { name: 'Mood', count: 11 }],
+      items: prices.map((p, i) => {
+        const on = sel.includes(i);
+        return {
+          id: ids[i], rank: ranks[i], price: p.toFixed(3), pressed: String(on),
+          label: (on ? 'Remove #' : 'Add #') + ids[i] + ' at ' + p.toFixed(3) + ' ETH',
+          toggle: () => this.setState({ sel: on ? sel.filter((x) => x !== i) : sel.concat(i) }),
+          style: 'display: flex; flex-direction: column; padding: 0; border-radius: 12px; overflow: hidden; background: #141416; cursor: pointer; font: inherit; color: inherit; border: 1px solid ' + (on ? '#FF8A00' : '#222327'),
+          art: 'position: relative; display: block; aspect-ratio: 1 / 1; background: ' + hues[i],
+          check: 'position: absolute; top: 8px; right: 8px; width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; ' + (on ? 'background: #FF8A00' : 'background: transparent; border: 1.5px solid #8C8F98; box-sizing: border-box')
+        };
+      }),
+      count: sel.length,
+      total: total.toFixed(3),
+      avg: sel.length ? (total / sel.length).toFixed(3) : '0.000',
+      onSweep: (e) => {
+        const n = Number(e.target.value);
+        this.setState({ sel: prices.map((_, i) => i).slice(0, n) });
+      },
+      clear: () => this.setState({ sel: [] })
+    };
+  }
+}
+</script>
+</body>
+</html>

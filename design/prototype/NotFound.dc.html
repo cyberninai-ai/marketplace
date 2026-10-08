@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sugg:hover{border-color:#3A3B42}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+  <header style="border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; height: 40px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+    </div>
+  </header>
+  <main style="max-width: 640px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+    <span class="mono" style="font-size: 96px; font-weight: 600; line-height: 1; color: #2A2B30">404</span>
+    <h1 style="margin: 0; font-size: 28px; font-weight: 700">This page doesn't exist</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #A3A6AE">The link may be broken, or the collection was hidden by its creator. Try searching by name, contract address or wallet.</p>
+    <form role="search" style="width: 100%; display: flex; gap: 8px">
+      <label for="q404" class="sr-only">Search</label>
+      <input id="q404" type="search" placeholder="Name, 0x… address or name.eth" style="flex: 1; min-width: 0; height: 48px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 10px; background: #141416; color: #F2F2F3; font: inherit; font-size: 15px">
+      <button type="button" style="height: 48px; padding: 0 20px; border: 0; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Search</button>
+    </form>
+    <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; text-align: left">
+      <a href="Main.dc.html" class="sugg" style="padding: 14px; border: 1px solid #222327; border-radius: 12px; background: #141416; color: #F2F2F3; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Discover</span><span style="font-size: 12px; color: #8C8F98">Trending and live drops</span></a>
+      <a href="Portfolio.dc.html" class="sugg" style="padding: 14px; border: 1px solid #222327; border-radius: 12px; background: #141416; color: #F2F2F3; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">My assets</span><span style="font-size: 12px; color: #8C8F98">What you own</span></a>
+      <a href="#" class="sugg" style="padding: 14px; border: 1px solid #222327; border-radius: 12px; background: #141416; color: #F2F2F3; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Help center</span><span style="font-size: 12px; color: #8C8F98">Report a broken link</span></a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

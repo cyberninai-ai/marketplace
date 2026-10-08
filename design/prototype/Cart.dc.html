@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Basket — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="border-bottom: 1px solid #222327">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <a href="Collection.dc.html" style="display: inline-flex; align-items: center; height: 40px; font-size: 14px; font-weight: 500">← Keep browsing</a>
+        <span class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #1B1C20; font-size: 13px">0x7a…3f21 · 4.21 Ξ</span>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+
+    <ol aria-label="Progress" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+        <li style="{{s.style}}"><span class="mono">{{s.n}}</span> {{s.label}}</li>
+      </sc-for>
+    </ol>
+
+    <sc-if value="{{isReview}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+        <section aria-label="Basket" style="flex: 999 1 520px; min-width: 0; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden">
+          <div style="padding: 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222327">
+            <h1 style="margin: 0; font-size: 18px; font-weight: 600">Basket · <span class="mono">{{count}}</span> items</h1>
+            <button type="button" onClick="{{clearAll}}" style="height: 36px; padding: 0 10px; border: 0; background: transparent; color: #A3A6AE; font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer">Clear all</button>
+          </div>
+          <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 40px 16px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+              <span style="font-size: 15px; font-weight: 600">Basket is empty</span>
+              <a href="Collection.dc.html" style="font-size: 14px">Find something to sweep</a>
+            </div>
+          </sc-if>
+          <sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #222327">
+              <span aria-hidden="true" style="{{l.art}}"></span>
+              <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                <span style="font-size: 14px; font-weight: 600">{{l.collection}} <span class="mono" style="color: #A3A6AE">#{{l.id}}</span></span>
+                <span class="mono" style="font-size: 12px; color: #8C8F98">{{l.note}}</span>
+              </span>
+              <span class="mono" style="font-size: 14px; font-weight: 600">{{l.price}} Ξ</span>
+              <button type="button" onClick="{{l.remove}}" aria-label="{{l.removeLabel}}" style="width: 40px; height: 40px; border: 0; border-radius: 8px; background: transparent; color: #8C8F98; cursor: pointer; display: flex; align-items: center; justify-content: center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+          <p style="margin: 0; padding: 12px 16px; font-size: 12px; color: #8C8F98">If an item sells before you sign, it's skipped and you're not charged for it.</p>
+        </section>
+
+        <aside aria-label="Summary" style="flex: 1 1 320px; min-width: 0; padding: 20px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 12px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Summary</h2>
+          <div class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Items</span><span>{{subtotal}} Ξ</span></div>
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Marketplace fee</span><span>0 Ξ</span></div>
+            <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Est. gas · 1 tx</span><span>~0.0031 Ξ</span></div>
+          </div>
+          <div class="mono" style="display: flex; justify-content: space-between; padding-top: 12px; border-top: 1px solid #2A2B30; font-size: 17px; font-weight: 700"><span>Total</span><span>{{total}} Ξ</span></div>
+          <label style="display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 13px; color: #C4C6CC">
+            <input type="checkbox" checked style="accent-color: #FF8A00; width: 16px; height: 16px; margin: 0">Substitute with next-cheapest if sold
+          </label>
+          <button type="button" onClick="{{toSign}}" disabled="{{empty}}" style="height: 48px; border: 0; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Buy {{count}} items</button>
+          <span style="font-size: 12px; color: #8C8F98">All items bought in one transaction.</span>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isSign}}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 460px; width: 100%; margin: 0 auto; padding: 28px; box-sizing: border-box; border: 1px solid #222327; border-radius: 16px; background: #141416; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <div aria-hidden="true" style="width: 48px; height: 48px; border-radius: 24px; border: 3px solid #2A2B30; border-top-color: #FF8A00; animation: spin 1s linear infinite"></div>
+        <h1 style="margin: 0; font-size: 20px; font-weight: 700">Confirm in your wallet</h1>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #A3A6AE">Approve one transaction for <span class="mono" style="color: #F2F2F3">{{count}}</span> items, total <span class="mono" style="color: #F2F2F3">{{total}} Ξ</span>.</p>
+        <div class="mono" style="width: 100%; display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; background: #0B0B0C; font-size: 12px; text-align: left">
+          <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Network</span><span>Ethereum</span></div>
+          <div style="display: flex; justify-content: space-between"><span style="color: #8C8F98">Contract</span><span>Market Router · verified</span></div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%">
+          <button type="button" onClick="{{toReview}}" style="flex: 1; height: 44px; border: 1px solid #2A2B30; border-radius: 10px; background: transparent; color: #F2F2F3; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+          <button type="button" onClick="{{toDone}}" style="flex: 1; height: 44px; border: 0; border-radius: 10px; background: #F2F2F3; color: #0B0B0C; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Simulate signed</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 520px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <div aria-hidden="true" style="width: 56px; height: 56px; border-radius: 28px; background: #12321F; display: flex; align-items: center; justify-content: center">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+        </div>
+        <h1 style="margin: 0; font-size: 26px; font-weight: 700">{{count}} items are yours</h1>
+        <p style="margin: 0; font-size: 14px; color: #A3A6AE">Transaction confirmed · <a href="#" class="mono">0x9f2c…71ab</a></p>
+        <div style="display: flex; gap: 8px">
+          <sc-for list="{{lines}}" as="l" hint-placeholder-count="3"><span aria-hidden="true" style="{{l.artBig}}"></span></sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; width: 100%">
+          <a href="Sell.dc.html" style="flex: 1 1 160px; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 15px; font-weight: 700; text-decoration: none">List them</a>
+          <a href="Main.dc.html" style="flex: 1 1 160px; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 10px; border: 1px solid #2A2B30; color: #F2F2F3; font-size: 15px; font-weight: 600; text-decoration: none">Back to discover</a>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      step: 0,
+      lines: [
+        { id: 4021, collection: 'Quiet Machines', price: 0.842, note: 'Rank 3120 · floor', c: '#3B2A4A' },
+        { id: 118, collection: 'Quiet Machines', price: 0.845, note: 'Rank 845 · floor +0.4%', c: '#2A3A4A' },
+        { id: 2977, collection: 'Quiet Machines', price: 0.85, note: 'Rank 2210 · floor +0.9%', c: '#4A3A2A' }
+      ]
+    };
+  }
+  renderVals() {
+    const lines = this.state.lines;
+    const sub = lines.reduce((s, l) => s + l.price, 0);
+    const labels = ['Review', 'Sign', 'Done'];
+    return {
+      steps: labels.map((label, i) => ({
+        n: i + 1, label,
+        style: 'display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 16px; font-size: 13px; font-weight: 600; ' +
+          (i === this.state.step ? 'background: #FF8A00; color: #0B0B0C' : i < this.state.step ? 'background: #1B1C20; color: #F2F2F3' : 'border: 1px solid #2A2B30; color: #8C8F98')
+      })),
+      isReview: this.state.step === 0,
+      isSign: this.state.step === 1,
+      isDone: this.state.step === 2,
+      empty: lines.length === 0,
+      count: lines.length,
+      subtotal: sub.toFixed(3),
+      total: (sub + 0.0031).toFixed(4),
+      lines: lines.map((l) => ({
+        ...l, price: l.price.toFixed(3), removeLabel: 'Remove #' + l.id,
+        art: 'width: 48px; height: 48px; flex: none; border-radius: 8px; background: ' + l.c,
+        artBig: 'width: 88px; height: 88px; border-radius: 12px; background: ' + l.c,
+        remove: () => this.setState({ lines: lines.filter((x) => x.id !== l.id) })
+      })),
+      clearAll: () => this.setState({ lines: [] }),
+      toSign: () => this.setState({ step: 1 }),
+      toReview: () => this.setState({ step: 0 }),
+      toDone: () => this.setState({ step: 2 })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Institutions — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.nav a[aria-current=page]{background:#1B1C20;color:#F2F2F3}
+.field{height:44px;padding:0 12px;border:1px solid #2A2B30;border-radius:8px;background:#0B0B0C;color:#F2F2F3;font:inherit;font-size:14px;box-sizing:border-box;width:100%}
+.field:focus{border-color:#FF8A00;outline:1px solid #FF8A00}
+.card:hover{border-color:#3A3B42}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html">Artists</a><a href="Communities.dc.html">Communities</a><a href="Causes.dc.html">Causes</a><a href="Institutions.dc.html" aria-current="page">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+    <div><h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Institutions</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">Museums, galleries, foundations and brands collecting and exhibiting on-chain.</p></div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+      <sc-for list="{{kinds}}" as="k" hint-placeholder-count="5"><button type="button" onClick="{{k.pick}}" aria-pressed="{{k.pressed}}" style="{{k.style}}">{{k.label}}</button></sc-for>
+    </div>
+
+    <section aria-label="Institution directory" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
+      <sc-for list="{{list}}" as="i" hint-placeholder-count="6">
+        <a href="Profile.dc.html" class="card" style="padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 12px; color: #F2F2F3; text-decoration: none">
+          <span style="display: flex; align-items: center; gap: 12px">
+            <span aria-hidden="true" style="{{i.logo}}">{{i.initials}}</span>
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+              <span style="display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600">{{i.name}}<svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8A00" aria-label="Verified institution"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.7 2.7L16 10" stroke="#0B0B0C" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <span style="font-size: 12px; color: #8C8F98">{{i.kind}} · {{i.city}}</span>
+            </span>
+          </span>
+          <span style="font-size: 13px; color: #C4C6CC">{{i.now}}</span>
+          <span class="mono" style="display: flex; gap: 16px; font-size: 12px; color: #A3A6AE"><span>{{i.works}} works held</span><span>{{i.shows}} exhibitions</span></span>
+        </a>
+      </sc-for>
+    </section>
+
+    <section aria-label="For institutions" style="display: flex; flex-wrap: wrap; gap: 24px; padding: 24px; border: 1px solid #222327; border-radius: 16px; background: #141416">
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #FF8A00">FOR INSTITUTIONS</span>
+        <h2 style="margin: 0; font-size: 24px; font-weight: 700">Collect, exhibit and launch with the controls you need.</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Multisig &amp; custody</span><span style="font-size: 13px; color: #8C8F98">Buy and hold with team approvals.</span></li>
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Bulk acquisitions</span><span style="font-size: 13px; color: #8C8F98">Private offers and invoiced purchases.</span></li>
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Verified provenance</span><span style="font-size: 13px; color: #8C8F98">Full on-chain history for every work.</span></li>
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">Exhibition pages</span><span style="font-size: 13px; color: #8C8F98">Curated shows with wall text and loans.</span></li>
+        </ul>
+      </div>
+      <form style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
+        <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 24px; border-radius: 12px; background: #12321F; color: #3DD68C; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 16px; font-weight: 700">Thanks, we'll be in touch.</span>
+            <span style="font-size: 13px; color: #A6E6C4">Our partnerships team replies within 2 business days.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="org" style="font-size: 13px; color: #C4C6CC">Organization</label><input id="org" class="field"></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px">
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="typ" style="font-size: 13px; color: #C4C6CC">Type</label><select id="typ" class="field"><option>Museum</option><option>Gallery</option><option>Foundation</option><option>Brand</option></select></div>
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="wem" style="font-size: 13px; color: #C4C6CC">Work email</label><input id="wem" class="field" type="email"></div>
+            </div>
+            <button type="button" onClick="{{send}}" style="height: 48px; border: 0; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Talk to partnerships</button>
+          </div>
+        </sc-if>
+      </form>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1250}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { kind: 'All', sent: false };
+  }
+  renderVals() {
+    const st = this.state;
+    const all = [
+      { name: '[Museum A]', kind: 'Museum', city: '[City]', now: 'Now showing: Code as Canvas', works: 48, shows: 3, c: '#22304A' },
+      { name: '[Gallery B]', kind: 'Gallery', city: '[City]', now: 'Representing 14 on-chain artists', works: 210, shows: 9, c: '#3B2A4A' },
+      { name: '[Foundation C]', kind: 'Foundation', city: '[City]', now: 'Open call: generative grants', works: 32, shows: 2, c: '#13261C' },
+      { name: '[Brand D]', kind: 'Brand', city: '[City]', now: 'Membership passes for loyal customers', works: 5000, shows: 1, c: '#4A3218' },
+      { name: '[Museum E]', kind: 'Museum', city: '[City]', now: 'Acquired 6 works this year', works: 19, shows: 1, c: '#40242C' },
+      { name: '[Gallery F]', kind: 'Gallery', city: '[City]', now: 'Photography on Bitcoin', works: 77, shows: 4, c: '#3A3320' }
+    ];
+    const list = st.kind === 'All' ? all : all.filter((i) => i.kind === st.kind);
+    return {
+      kinds: ['All', 'Museum', 'Gallery', 'Foundation', 'Brand'].map((k) => ({
+        label: k === 'All' ? 'All' : k + 's', pressed: String(st.kind === k), pick: () => this.setState({ kind: k }),
+        style: 'height: 36px; padding: 0 14px; border-radius: 18px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ' + (st.kind === k ? 'border: 1px solid #F2F2F3; background: #F2F2F3; color: #0B0B0C' : 'border: 1px solid #2A2B30; background: transparent; color: #C4C6CC')
+      })),
+      list: list.map((i) => ({
+        ...i, works: i.works.toLocaleString('en-US'), initials: i.kind[0],
+        logo: 'width: 44px; height: 44px; flex: none; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #F2F2F3; background: ' + i.c
+      })),
+      sent: st.sent, notSent: !st.sent,
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

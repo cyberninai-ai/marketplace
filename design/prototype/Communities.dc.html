@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Communities — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.nav a[aria-current=page]{background:#1B1C20;color:#F2F2F3}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html">Artists</a><a href="Communities.dc.html" aria-current="page">Communities</a><a href="Causes.dc.html">Causes</a><a href="Institutions.dc.html">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div><h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Communities</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">Holder-only spaces for chat, events and early access. Your wallet is your membership.</p></div>
+      <a href="Create.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; font-size: 14px; font-weight: 600; text-decoration: none">Start a community</a>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section aria-label="Communities" style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <div role="tablist" aria-label="Filter" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: #141416; align-self: flex-start">
+          <sc-for list="{{filters}}" as="f" hint-placeholder-count="3">
+            <button type="button" role="tab" aria-selected="{{f.selected}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+          </sc-for>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
+          <sc-for list="{{communities}}" as="c" hint-placeholder-count="6">
+            <article style="padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 12px">
+              <div style="display: flex; align-items: center; gap: 12px">
+                <span aria-hidden="true" style="{{c.logo}}"></span>
+                <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{c.name}}</span><span class="mono" style="font-size: 12px; color: #8C8F98">{{c.members}} members · {{c.online}} online</span></span>
+              </div>
+              <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #C4C6CC">{{c.about}}</p>
+              <span style="{{c.gateStyle}}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+                {{c.gate}}
+              </span>
+              <sc-if value="{{c.canJoin}}" hint-placeholder-val="{{ true }}">
+                <button type="button" onClick="{{c.toggle}}" aria-pressed="{{c.joinedStr}}" style="{{c.btn}}">{{c.btnText}}</button>
+              </sc-if>
+              <sc-if value="{{c.locked}}" hint-placeholder-val="{{ false }}">
+                <a href="Collection.dc.html" style="display: flex; align-items: center; justify-content: center; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; font-size: 13px; font-weight: 600; text-decoration: none">{{c.unlock}}</a>
+              </sc-if>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <aside aria-label="Upcoming events" style="flex: 1 1 300px; min-width: 0; padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 10px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Upcoming events</h2>
+        <sc-for list="{{events}}" as="e" hint-placeholder-count="4">
+          <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #222327">
+            <span class="mono" style="width: 44px; flex: none; display: flex; flex-direction: column; align-items: center; font-size: 11px; color: #8C8F98"><span>{{e.mon}}</span><span style="font-size: 18px; font-weight: 600; color: #F2F2F3">{{e.day}}</span></span>
+            <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600">{{e.title}}</span><span style="font-size: 12px; color: #8C8F98">{{e.meta}}</span></span>
+          </div>
+        </sc-for>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'All', joined: { qm: true } };
+  }
+  renderVals() {
+    const st = this.state;
+    const all = [
+      { id: 'qm', name: 'Quiet Machines Club', members: '2,904', online: '211', about: 'Holders chat, monthly AMAs and airdrops for long-term holders.', gate: 'You qualify · hold 2 Quiet Machines', ok: true, c: '#3B2A4A' },
+      { id: 'ob', name: 'Orbit Holders', members: '1,120', online: '96', about: 'The artist’s studio channel. Reveal day is coming soon.', gate: 'You qualify · hold 2 Orbital Studies', ok: true, c: '#4A3218' },
+      { id: 'ps', name: 'Pixel Saints Guild', members: '4,410', online: '502', about: 'Gaming guild. Tournaments every Friday, prizes in SOL.', gate: 'Requires 1 Pixel Saints', ok: false, unlock: 'Buy at floor · 4.2 SOL', c: '#1F3A3A' },
+      { id: 'cc', name: 'Collectors Commons', members: '18,300', online: '1.2k', about: 'Open to anyone with a wallet. Market talk, no shilling.', gate: 'Open to everyone', ok: true, c: '#2A2B30' },
+      { id: 'rs', name: 'Rune Readers', members: '690', online: '34', about: 'Ordinals research and early inscriptions.', gate: 'Requires 1 Runestones', ok: false, unlock: 'Buy at floor · 0.004 ₿', c: '#3A3320' },
+      { id: 'cl', name: 'Climate Drops DAO', members: '3,050', online: '140', about: 'Holders vote on which climate projects the next drop funds.', gate: 'You qualify · own 1 cause NFT', ok: true, c: '#203A2A' }
+    ];
+    const list = all.filter((c) => st.filter === 'All' || (st.filter === 'Joined' ? !!st.joined[c.id] : c.ok));
+    return {
+      filters: ['All', 'Joined', 'I qualify'].map((f) => ({
+        label: f, selected: String(st.filter === f), pick: () => this.setState({ filter: f }),
+        style: 'height: 36px; padding: 0 14px; border: 0; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; ' + (st.filter === f ? 'background: #2A2B30; color: #F2F2F3' : 'background: transparent; color: #8C8F98')
+      })),
+      communities: list.map((c) => {
+        const j = !!st.joined[c.id];
+        return {
+          ...c, canJoin: c.ok, locked: !c.ok, joinedStr: String(j),
+          btnText: j ? 'Open community' : 'Join',
+          btn: 'height: 40px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; ' + (j ? 'border: 1px solid #2A2B30; background: transparent; color: #F2F2F3' : 'border: 0; background: #FF8A00; color: #0B0B0C'),
+          toggle: () => this.setState({ joined: { ...st.joined, [c.id]: true } }),
+          logo: 'width: 44px; height: 44px; flex: none; border-radius: 12px; background: ' + c.c,
+          gateStyle: 'display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; ' + (c.ok ? 'background: #12321F; color: #3DD68C' : 'background: #1B1C20; color: #C4C6CC')
+        };
+      }),
+      events: [
+        { mon: 'OCT', day: '10', title: 'Orbital Studies reveal party', meta: 'Orbit Holders · Live audio · 20:00 UTC' },
+        { mon: 'OCT', day: '12', title: 'Friday tournament', meta: 'Pixel Saints Guild · holders only' },
+        { mon: 'OCT', day: '16', title: 'Floor talk with the team', meta: 'Quiet Machines Club · AMA' },
+        { mon: 'OCT', day: '24', title: 'Cause vote: Q4 drop', meta: 'Climate Drops DAO · on-chain vote' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

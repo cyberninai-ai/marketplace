@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Causes — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.nav a{display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;color:#A3A6AE;text-decoration:none}
+.nav a:hover{color:#F2F2F3}
+.nav a[aria-current=page]{background:#1B1C20;color:#F2F2F3}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+@media (max-width: 900px){.bento > *{grid-column:1 / -1 !important}}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav class="nav" aria-label="Primary" style="flex: 1; display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html">Discover</a><a href="Collection.dc.html">Collections</a><a href="Mint.dc.html">Drops</a><a href="Artists.dc.html">Artists</a><a href="Communities.dc.html">Communities</a><a href="Causes.dc.html" aria-current="page">Causes</a><a href="Institutions.dc.html">Institutions</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div><h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Causes</h1><p style="margin: 6px 0 0; font-size: 14px; color: #A3A6AE">Drops where proceeds go to verified organizations. Every payout is on-chain and public.</p></div>
+      <a href="Create.dc.html" style="font-size: 14px; font-weight: 600">Launch a cause drop →</a>
+    </div>
+
+    <div class="bento" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px">
+      <section aria-label="Featured cause" style="grid-column: span 8; display: flex; flex-wrap: wrap; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden">
+        <div style="flex: 1 1 260px; min-height: 260px; background: #13261C; display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box; font-size: 12px; color: #A3A6AE">[Cause artwork]</div>
+        <div style="flex: 1 1 320px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+          <span style="display: flex; flex-wrap: wrap; gap: 6px">
+            <span style="padding: 2px 8px; border-radius: 4px; background: #12321F; color: #3DD68C; font-size: 11px; font-weight: 700">100% TO CAUSE</span>
+            <span style="padding: 2px 8px; border-radius: 4px; background: #1B1C20; color: #C4C6CC; font-size: 11px; font-weight: 700">VERIFIED PARTNER</span>
+          </span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 700">Mangrove Restore</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C4C6CC">Open edition by 12 artists. Funds coastal replanting run by [Partner organization].</p>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div role="progressbar" aria-label="Raised" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62" style="height: 8px; border-radius: 4px; background: #2A2B30; overflow: hidden"><div style="width: 62%; height: 100%; background: #3DD68C"></div></div>
+            <div class="mono" style="display: flex; justify-content: space-between; font-size: 12px; color: #A3A6AE"><span>[Raised] of [Goal]</span><span>Ends in 4d</span></div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="Mint.dc.html" style="flex: 1 1 140px; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 14px; font-weight: 700; text-decoration: none">Mint to support</a>
+            <a href="#" style="flex: 1 1 140px; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 10px; border: 1px solid #2A2B30; color: #F2F2F3; font-size: 14px; font-weight: 600; text-decoration: none">View payouts</a>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Donate directly" style="grid-column: span 4; padding: 16px; border: 1px solid #222327; border-radius: 14px; background: #141416; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Donate directly</h2>
+        <p style="margin: 0; font-size: 13px; color: #A3A6AE">No NFT, no fee. Goes straight to the organization's wallet.</p>
+        <div role="group" aria-label="Amount" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+          <sc-for list="{{amounts}}" as="a" hint-placeholder-count="4"><button type="button" onClick="{{a.pick}}" aria-pressed="{{a.pressed}}" class="mono" style="{{a.style}}">{{a.label}}</button></sc-for>
+        </div>
+        <label for="tok" style="font-size: 12px; color: #8C8F98">Pay with</label>
+        <select id="tok" style="height: 40px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #0B0B0C; color: #F2F2F3; font: inherit; font-size: 13px"><option>ETH on Base</option><option>USDC on Base</option><option>SOL</option></select>
+        <button type="button" style="margin-top: auto; height: 44px; border: 0; border-radius: 10px; background: #F2F2F3; color: #0B0B0C; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer">Donate {{amount}}</button>
+        <span class="mono" style="font-size: 11px; color: #8C8F98">To 0x2b…91ef · verified [Partner organization]</span>
+      </section>
+    </div>
+
+    <div role="group" aria-label="Cause type" style="display: flex; flex-wrap: wrap; gap: 6px">
+      <sc-for list="{{types}}" as="t" hint-placeholder-count="6"><button type="button" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+    </div>
+
+    <section aria-label="Cause drops" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px">
+      <sc-for list="{{causes}}" as="c" hint-placeholder-count="6">
+        <a href="Mint.dc.html" style="display: flex; flex-direction: column; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden; color: #F2F2F3; text-decoration: none">
+          <span style="{{c.art}}"></span>
+          <span style="padding: 14px; display: flex; flex-direction: column; gap: 8px">
+            <span style="display: flex; justify-content: space-between; gap: 8px; align-items: center"><span style="font-size: 15px; font-weight: 600">{{c.name}}</span><span style="padding: 2px 8px; border-radius: 4px; background: #12321F; color: #3DD68C; font-size: 11px; font-weight: 700">{{c.split}}</span></span>
+            <span style="font-size: 12px; color: #8C8F98">{{c.type}} · {{c.org}}</span>
+            <span style="height: 4px; border-radius: 2px; background: #2A2B30; overflow: hidden"><span style="{{c.bar}}"></span></span>
+            <span class="mono" style="font-size: 12px; color: #A3A6AE">{{c.pct}} of goal · {{c.price}}</span>
+          </span>
+        </a>
+      </sc-for>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { amt: '0.05 Ξ', type: 'All' };
+  }
+  renderVals() {
+    const st = this.state;
+    const types = ['All', 'Climate', 'Education', 'Health', 'Open source', 'Relief'];
+    const all = [
+      { name: 'Mangrove Restore', type: 'Climate', org: '[Partner org]', split: '100%', pct: 62, price: '0.01 Ξ', c: '#13261C' },
+      { name: 'Code for Kids', type: 'Education', org: '[Partner org]', split: '50%', pct: 38, price: '0.02 Ξ', c: '#22304A' },
+      { name: 'Clean Water Map', type: 'Health', org: '[Partner org]', split: '100%', pct: 81, price: '5 POL', c: '#1F3A3A' },
+      { name: 'Public Goods Pack', type: 'Open source', org: '[Partner org]', split: '70%', pct: 24, price: '0.005 Ξ', c: '#33304A' },
+      { name: 'Flood Response', type: 'Relief', org: '[Partner org]', split: '100%', pct: 93, price: '0.1 SOL', c: '#40242C' },
+      { name: 'Seed Vault', type: 'Climate', org: '[Partner org]', split: '80%', pct: 12, price: '0.003 ₿', c: '#2E3A22' }
+    ];
+    const list = st.type === 'All' ? all : all.filter((c) => c.type === st.type);
+    return {
+      amount: st.amt,
+      amounts: ['0.01 Ξ', '0.05 Ξ', '0.1 Ξ', 'Other'].map((a) => ({
+        label: a, pressed: String(st.amt === a), pick: () => this.setState({ amt: a }),
+        style: 'height: 40px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; ' + (st.amt === a ? 'border: 1px solid #FF8A00; background: #1E150B; color: #FF8A00' : 'border: 1px solid #2A2B30; background: transparent; color: #F2F2F3')
+      })),
+      types: types.map((t) => ({
+        label: t, pressed: String(st.type === t), pick: () => this.setState({ type: t }),
+        style: 'height: 36px; padding: 0 14px; border-radius: 18px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ' + (st.type === t ? 'border: 1px solid #F2F2F3; background: #F2F2F3; color: #0B0B0C' : 'border: 1px solid #2A2B30; background: transparent; color: #C4C6CC')
+      })),
+      causes: list.map((c) => ({
+        ...c, split: c.split + ' TO CAUSE', pct: c.pct + '%',
+        art: 'display: block; height: 150px; background: ' + c.c,
+        bar: 'display: block; height: 100%; background: #3DD68C; width: ' + c.pct + '%'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

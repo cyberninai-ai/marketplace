@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discover — Market</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C}
+a{color:#FF8A00}a:hover{color:#FFA640}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.row:hover{background:#1B1C20}
+.tile-link:hover{border-color:#3A3B42}
+:focus-visible{outline:2px solid #FF8A00;outline-offset:2px}
+@media (max-width: 900px){.bento > *{grid-column:1 / -1 !important}}
+</style>
+</helmet>
+<div style="font-family: Geist, 'Helvetica Neue', sans-serif; color: #F2F2F3; background: #0B0B0C; min-height: 100%">
+
+  <header style="position: sticky; top: 0; z-index: 5; background: #0B0B0C; border-bottom: 1px solid #222327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px">
+      <a href="Main.dc.html" style="font-size: 18px; font-weight: 800; letter-spacing: 0.06em; color: #FF8A00; text-decoration: none">MARKET</a>
+      <nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 2px; font-size: 14px; font-weight: 500">
+        <a href="Main.dc.html" aria-current="page" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; background: #1B1C20; color: #F2F2F3; text-decoration: none">Discover</a>
+        <a href="Collection.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Collections</a>
+        <a href="Mint.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Drops</a>
+        <a href="Sell.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">List</a>
+        <a href="Create.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Create</a>
+        <a href="Artists.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Artists</a>
+        <a href="Communities.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Communities</a>
+        <a href="Causes.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Causes</a>
+        <a href="Institutions.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 8px; color: #A3A6AE; text-decoration: none">Institutions</a>
+      </nav>
+      <form role="search" style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; background: #141416">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8C8F98" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <label for="q" class="sr-only">Search collections, wallets, items</label>
+        <input id="q" type="search" placeholder="Collections, wallets, items" style="flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 14px; color: #F2F2F3; outline: none">
+        <span class="mono" style="font-size: 11px; color: #8C8F98; border: 1px solid #2A2B30; border-radius: 4px; padding: 1px 5px">/</span>
+      </form>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span class="mono" title="Gas price" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 10px; font-size: 13px; color: #A3A6AE">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path><path d="M3 21h12"></path><path d="M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"></path></svg>
+          12 gwei
+        </span>
+        <a href="Cart.dc.html" aria-label="Basket, 3 items" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 14px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"></path><circle cx="9" cy="19.5" r="1.5"></circle><circle cx="17" cy="19.5" r="1.5"></circle></svg>
+          <span class="mono">3</span>
+        </a>
+        <a href="Watchlist.dc.html" aria-label="Watchlist" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></a>
+        <a href="Portfolio.dc.html" class="mono" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 8px; background: #FF8A00; color: #0B0B0C; font-size: 13px; font-weight: 600; text-decoration: none">0x7a…3f21</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px 24px 64px; display: flex; flex-direction: column; gap: 16px">
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <nav aria-label="Chains" style="display: flex; flex-wrap: wrap; gap: 6px">
+        <sc-for list="{{chains}}" as="c" hint-placeholder-count="7">
+          <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+        </sc-for>
+      </nav>
+      <span style="font-size: 13px; color: #8C8F98">Fees <span class="mono" style="color: #F2F2F3">0.5%</span> · Creator royalties honored</span>
+    </div>
+
+    <div class="bento" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px">
+
+      <!-- Featured live drop -->
+      <section aria-label="Featured drop" style="grid-column: span 7; display: flex; flex-direction: column; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden">
+        <div style="position: relative; height: 300px; background: #241A10; display: flex; align-items: center; justify-content: center">
+          <svg width="260" height="260" viewBox="0 0 200 200" fill="none" stroke="#FF8A00" stroke-width="1.5" aria-hidden="true" style="opacity: 0.55"><circle cx="100" cy="100" r="90"></circle><circle cx="100" cy="100" r="60"></circle><circle cx="100" cy="100" r="30"></circle><path d="M10 100h180M100 10v180"></path></svg>
+          <span style="position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 13px; background: #0B0B0C; font-size: 12px; font-weight: 600; color: #3DD68C">
+            <span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 4px; background: #3DD68C"></span>LIVE · Allowlist phase
+          </span>
+          <span class="mono" style="position: absolute; top: 16px; right: 16px; height: 26px; padding: 0 10px; border-radius: 13px; background: #0B0B0C; font-size: 12px; color: #A3A6AE; display: inline-flex; align-items: center">Base</span>
+          <span style="position: absolute; bottom: 12px; left: 16px; font-size: 12px; color: #A3A6AE">[Collection artwork]</span>
+        </div>
+        <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span style="font-size: 13px; color: #8C8F98">by [Creator] · Verified</span>
+              <h2 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Orbital Studies</h2>
+            </div>
+            <div style="display: flex; gap: 24px">
+              <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #8C8F98">Price</span><span class="mono" style="font-size: 16px; font-weight: 600">0.02 ETH</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #8C8F98">Public in</span><span class="mono" style="font-size: 16px; font-weight: 600">03:41:12</span></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div role="progressbar" aria-label="Minted" aria-valuemin="0" aria-valuemax="5000" aria-valuenow="3412" style="height: 6px; border-radius: 3px; background: #2A2B30; overflow: hidden"><div style="width: 68%; height: 100%; background: #FF8A00"></div></div>
+            <div class="mono" style="display: flex; justify-content: space-between; font-size: 12px; color: #8C8F98"><span>3,412 / 5,000 minted</span><span>68%</span></div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="Mint.dc.html" style="flex: 1 1 180px; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 10px; background: #FF8A00; color: #0B0B0C; font-size: 15px; font-weight: 700; text-decoration: none">Mint now</a>
+            <a href="Mint.dc.html" style="flex: 1 1 180px; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 10px; border: 1px solid #2A2B30; color: #F2F2F3; font-size: 15px; font-weight: 600; text-decoration: none">Check allowlist</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending -->
+      <section aria-label="Trending collections" style="grid-column: span 5; display: flex; flex-direction: column; border: 1px solid #222327; border-radius: 14px; background: #141416; overflow: hidden">
+        <div style="padding: 16px 16px 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+          <h2 style="margin: 0; font-size: 15px; font-weight: 600">Trending</h2>
+          <div role="group" aria-label="Time range" style="display: flex; gap: 2px; padding: 2px; border-radius: 8px; background: #0B0B0C">
+            <sc-for list="{{ranges}}" as="r" hint-placeholder-count="4">
+              <button type="button" onClick="{{r.pick}}" aria-pressed="{{r.pressed}}" class="mono" style="{{r.style}}">{{r.label}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="mono" style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 80px 64px 72px; gap: 8px; padding: 6px 16px; font-size: 11px; color: #8C8F98; border-bottom: 1px solid #222327">
+          <span>#</span><span>Collection</span><span style="text-align: right">Floor</span><span style="text-align: right">{{rangeLabel}}</span><span style="text-align: right">Volume</span>
+        </div>
+        <sc-for list="{{trending}}" as="t" hint-placeholder-count="7">
+          <a href="Collection.dc.html" class="row" style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 80px 64px 72px; gap: 8px; align-items: center; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #F2F2F3; text-decoration: none; font-size: 13px">
+            <span class="mono" style="color: #8C8F98">{{t.rank}}</span>
+            <span style="display: flex; align-items: center; gap: 10px; min-width: 0">
+              <span aria-hidden="true" style="{{t.swatch}}"></span>
+              <span style="display: flex; flex-direction: column; min-width: 0">
+                <span style="font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.name}}</span>
+                <span style="font-size: 11px; color: #8C8F98">{{t.chain}}</span>
+              </span>
+            </span>
+            <span class="mono" style="text-align: right">{{t.floor}}</span>
+            <span class="mono" style="{{t.changeStyle}}">{{t.change}}</span>
+            <span class="mono" style="text-align: right; color: #A3A6AE">{{t.vol}}</span>
+          </a>
+        </sc-for>
+        <a href="Collection.dc.html" style="margin-top: auto; padding: 12px 16px; border-top: 1px solid #222327; font-size: 13px; font-weight: 500">All rankings →</a>
+      </section>
+
+      <!-- Live mints -->
+      <section aria-label="Minting now" style="grid-column: span 4; padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1px solid #222327; border-radius: 14px; background: #141416">
+        <div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Minting now</h2><a href="Mint.dc.html" style="font-size: 13px">All drops</a></div>
+        <sc-for list="{{mints}}" as="m" hint-placeholder-count="3">
+          <a href="Mint.dc.html" style="display: flex; gap: 12px; align-items: center; color: #F2F2F3; text-decoration: none">
+            <span aria-hidden="true" style="{{m.swatch}}"></span>
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+              <span style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px"><span style="font-weight: 600">{{m.name}}</span><span class="mono" style="color: #A3A6AE">{{m.price}}</span></span>
+              <span style="height: 4px; border-radius: 2px; background: #2A2B30; overflow: hidden"><span style="{{m.bar}}"></span></span>
+              <span class="mono" style="display: flex; justify-content: space-between; font-size: 11px; color: #8C8F98"><span>{{m.phase}}</span><span>{{m.pct}}</span></span>
+            </span>
+          </a>
+        </sc-for>
+      </section>
+
+      <!-- Upcoming -->
+      <section aria-label="Upcoming drops" style="grid-column: span 4; padding: 16px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #222327; border-radius: 14px; background: #141416">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Upcoming</h2>
+        <sc-for list="{{upcoming}}" as="u" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid #222327">
+            <span class="mono" style="width: 44px; flex: none; display: flex; flex-direction: column; align-items: center; font-size: 11px; color: #8C8F98"><span>{{u.month}}</span><span style="font-size: 18px; font-weight: 600; color: #F2F2F3">{{u.day}}</span></span>
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-size: 13px; font-weight: 600">{{u.name}}</span>
+              <span style="font-size: 11px; color: #8C8F98">{{u.meta}}</span>
+            </span>
+            <button type="button" onClick="{{u.toggle}}" aria-pressed="{{u.pressed}}" style="{{u.style}}">{{u.cta}}</button>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- Allowlists -->
+      <section aria-label="Your allowlists" style="grid-column: span 4; padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1px solid #222327; border-radius: 14px; background: #141416">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Your allowlists</h2>
+        <p style="margin: 0; font-size: 13px; color: #A3A6AE">Wallet <span class="mono" style="color: #F2F2F3">0x7a…3f21</span> is eligible for</p>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <a href="Mint.dc.html" class="tile-link" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border: 1px solid #2A2B30; border-radius: 10px; color: #F2F2F3; text-decoration: none; font-size: 13px"><span style="font-weight: 600">Orbital Studies</span><span class="mono" style="color: #3DD68C">Live · 2 / wallet</span></a>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border: 1px solid #2A2B30; border-radius: 10px; font-size: 13px"><span style="font-weight: 600">Salt Flats</span><span class="mono" style="color: #A3A6AE">Opens Oct 14</span></div>
+        </div>
+        <label for="check" style="font-size: 12px; color: #8C8F98; margin-top: auto">Check another wallet</label>
+        <div style="display: flex; gap: 6px">
+          <input id="check" type="text" placeholder="0x… or name.eth" class="mono" style="flex: 1; min-width: 0; height: 40px; padding: 0 10px; border: 1px solid #2A2B30; border-radius: 8px; background: #0B0B0C; color: #F2F2F3; font-size: 13px">
+          <button type="button" style="height: 40px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; background: #1B1C20; color: #F2F2F3; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Check</button>
+        </div>
+      </section>
+
+      <!-- Top movers -->
+      <section aria-label="Top movers" style="grid-column: span 6; padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1px solid #222327; border-radius: 14px; background: #141416">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Floor movers · 24h</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px">
+          <sc-for list="{{movers}}" as="v" hint-placeholder-count="4">
+            <a href="Collection.dc.html" class="tile-link" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2A2B30; border-radius: 10px; color: #F2F2F3; text-decoration: none">
+              <span style="font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{v.name}}</span>
+              <svg width="100%" height="36" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{v.points}}" fill="none" stroke="{{v.color}}" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+              <span class="mono" style="display: flex; justify-content: space-between; font-size: 12px"><span>{{v.floor}}</span><span style="{{v.changeStyle}}">{{v.change}}</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section aria-label="Browse by category" style="grid-column: span 3; padding: 16px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #222327; border-radius: 14px; background: #141416">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 600">Browse</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px">
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">Art</a>
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">Gaming</a>
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">PFPs</a>
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">Ordinals</a>
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">Photography</a>
+          <a href="Collection.dc.html" class="tile-link" style="display: flex; align-items: center; height: 44px; padding: 0 12px; border: 1px solid #2A2B30; border-radius: 8px; color: #F2F2F3; text-decoration: none; font-size: 13px">Music</a>
+        </div>
+      </section>
+
+      <!-- Create CTA -->
+      <a href="Create.dc.html" class="tile-link" style="grid-column: span 3; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; border: 1px solid #FF8A00; border-radius: 14px; background: #1E150B; color: #F2F2F3; text-decoration: none">
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 15px; font-weight: 600">Launch a collection</span>
+          <span style="font-size: 13px; line-height: 1.5; color: #C9B9A6">Deploy a contract, set allowlist and public phases, go live. No code.</span>
+        </span>
+        <span style="font-size: 14px; font-weight: 700; color: #FF8A00">Start creating →</span>
+      </a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { chain: 'all', range: '24h', reminded: {} };
+  }
+  renderVals() {
+    const pill = (on) => 'height: 36px; padding: 0 14px; border-radius: 18px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ' +
+      (on ? 'border: 1px solid #F2F2F3; background: #F2F2F3; color: #0B0B0C' : 'border: 1px solid #2A2B30; background: transparent; color: #C4C6CC');
+    const seg = (on) => 'height: 28px; padding: 0 10px; border: 0; border-radius: 6px; font-size: 12px; cursor: pointer; ' +
+      (on ? 'background: #2A2B30; color: #F2F2F3' : 'background: transparent; color: #8C8F98');
+    const sw = (c, s) => 'width: ' + s + 'px; height: ' + s + 'px; flex: none; border-radius: 8px; background: ' + c;
+    const up = 'text-align: right; color: #3DD68C';
+    const down = 'text-align: right; color: #FF7A7A';
+    const chains = [['all', 'All chains'], ['eth', 'Ethereum'], ['base', 'Base'], ['sol', 'Solana'], ['btc', 'Bitcoin'], ['arb', 'Arbitrum'], ['pol', 'Polygon']];
+    const all = [
+      { name: 'Quiet Machines', chain: 'eth', chainLabel: 'Ethereum', floor: '0.842 Ξ', change: 12.4, vol: '312 Ξ', c: '#3B2A4A' },
+      { name: 'Orbital Studies', chain: 'base', chainLabel: 'Base', floor: '0.031 Ξ', change: 48.0, vol: '96 Ξ', c: '#4A3218' },
+      { name: 'Pixel Saints', chain: 'sol', chainLabel: 'Solana', floor: '4.2 SOL', change: -6.1, vol: '1.8k SOL', c: '#1F3A3A' },
+      { name: 'Runestones', chain: 'btc', chainLabel: 'Bitcoin', floor: '0.004 ₿', change: 3.3, vol: '2.1 ₿', c: '#3A3320' },
+      { name: 'Field Notes', chain: 'eth', chainLabel: 'Ethereum', floor: '0.215 Ξ', change: -2.8, vol: '84 Ξ', c: '#22304A' },
+      { name: 'Arcade Keys', chain: 'arb', chainLabel: 'Arbitrum', floor: '0.012 Ξ', change: 21.7, vol: '41 Ξ', c: '#2E3A22' },
+      { name: 'Low Tide', chain: 'pol', chainLabel: 'Polygon', floor: '38 POL', change: -11.2, vol: '22k POL', c: '#40242C' }
+    ];
+    const list = this.state.chain === 'all' ? all : all.filter((x) => x.chain === this.state.chain);
+    const ranges = ['1h', '24h', '7d', '30d'];
+    const spark = (seed, upTrend) => {
+      const pts = [];
+      for (let i = 0; i < 12; i++) {
+        const base = upTrend ? 30 - i * 2 : 8 + i * 2;
+        const wob = ((seed * (i + 3)) % 9) - 4;
+        pts.push((i * 100 / 11).toFixed(1) + ',' + Math.max(2, Math.min(34, base + wob)));
+      }
+      return pts.join(' ');
+    };
+    const movers = [
+      { name: 'Orbital Studies', floor: '0.031 Ξ', change: 48.0 },
+      { name: 'Arcade Keys', floor: '0.012 Ξ', change: 21.7 },
+      { name: 'Low Tide', floor: '38 POL', change: -11.2 },
+      { name: 'Pixel Saints', floor: '4.2 SOL', change: -6.1 }
+    ];
+    const upcoming = [
+      { id: 'salt', month: 'OCT', day: '14', name: 'Salt Flats', meta: 'Ethereum · Allowlist + public · 0.05 Ξ' },
+      { id: 'gl', month: 'OCT', day: '17', name: 'Glyph Garden', meta: 'Bitcoin Ordinals · 777 supply' },
+      { id: 'mk', month: 'OCT', day: '21', name: 'Mech Kart S2', meta: 'Solana · Gaming · Free mint' }
+    ];
+    return {
+      chains: chains.map(([id, label]) => ({ label, pressed: String(this.state.chain === id), style: pill(this.state.chain === id), pick: () => this.setState({ chain: id }) })),
+      ranges: ranges.map((r) => ({ label: r, pressed: String(this.state.range === r), style: seg(this.state.range === r), pick: () => this.setState({ range: r }) })),
+      rangeLabel: this.state.range,
+      trending: list.map((x, i) => ({
+        rank: i + 1, name: x.name, chain: x.chainLabel, floor: x.floor, vol: x.vol,
+        change: (x.change > 0 ? '+' : '') + x.change.toFixed(1) + '%',
+        changeStyle: x.change > 0 ? up : down, swatch: sw(x.c, 32)
+      })),
+      mints: [
+        { name: 'Orbital Studies', price: '0.02 Ξ', phase: 'Allowlist', pct: '68%', w: 68, c: '#4A3218' },
+        { name: 'Mech Kart S1', price: 'Free', phase: 'Public', pct: '91%', w: 91, c: '#203A2A' },
+        { name: 'Night Ferries', price: '0.5 SOL', phase: 'Public', pct: '24%', w: 24, c: '#22304A' }
+      ].map((m) => ({ ...m, swatch: sw(m.c, 44), bar: 'display: block; height: 100%; width: ' + m.w + '%; background: #FF8A00' })),
+      upcoming: upcoming.map((u) => {
+        const on = !!this.state.reminded[u.id];
+        return {
+          ...u, pressed: String(on), cta: on ? 'Reminder set' : 'Remind me',
+          style: 'height: 36px; padding: 0 12px; border-radius: 8px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ' + (on ? 'border: 1px solid #FF8A00; background: transparent; color: #FF8A00' : 'border: 1px solid #2A2B30; background: #1B1C20; color: #F2F2F3'),
+          toggle: () => this.setState({ reminded: { ...this.state.reminded, [u.id]: !on } })
+        };
+      }),
+      movers: movers.map((m, i) => ({
+        name: m.name, floor: m.floor,
+        change: (m.change > 0 ? '+' : '') + m.change.toFixed(1) + '%',
+        changeStyle: m.change > 0 ? 'color: #3DD68C' : 'color: #FF7A7A',
+        color: m.change > 0 ? '#3DD68C' : '#FF7A7A',
+        points: spark(i + 2, m.change > 0)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
